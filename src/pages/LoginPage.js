@@ -2,8 +2,16 @@ import React from 'react';
 
 
 function LoginPage() {
-    return(
-        <h1>hier inloggen</h1>
+    return (
+        <>
+        <p>hier inloggen</p>
+            <label>
+        <input type="text" placeholder="gebruikersnaam"/>
+            </label>
+            <label>
+                <input type="text" placeholder="wachtwoord"/>
+            </label>
+        </>
     )
 }
 

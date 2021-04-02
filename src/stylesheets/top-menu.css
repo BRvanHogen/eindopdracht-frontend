@@ -1,0 +1,39 @@
+@import '../assets/fonts/fonts.css';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.top-menu {
+    background-color: gold;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.active-link {
+    text-decoration: underline;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+a::after {
+    display: block;
+    content: "";
+    width: 0;
+    height: 3px;
+    background-color: blanchedalmond;
+    transition: width .5s ease-in-out;
+}
+
+a:hover::after {
+    width: 100%;
+}

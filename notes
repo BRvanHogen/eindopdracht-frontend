@@ -1,0 +1,8 @@
+Notities 2 april:
+
+[] nagaan of UseHistory van belang is. Misschien leuk: timer erop zetten en animatie laten
+spelen (zie https://javascript.plainenglish.io/navigating-your-react-app-with-the-usehistory-hook-c7c465bfc6f6)
+
+CSS-notes
+[] vergeet niet om class names toe te voegen aan components om styling makkelijk te maken
+[] hoewel de Navlink in react geen a-hook is, spreek je hem wél zo aan in CSS
