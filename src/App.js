@@ -1,11 +1,17 @@
 import React from 'react';
 import './App.css';
+import {BrowserRouter as Router, Switch, Route, } from 'react-router-dom';
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
-    <>
-      <h1>het begin</h1>
-    </>
+    <Router>
+        <Switch>
+            <Route exact path="/">
+      <LoginPage/>
+            </Route>
+        </Switch>
+    </Router>
   );
 }
 
