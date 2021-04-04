@@ -6,3 +6,23 @@ spelen (zie https://javascript.plainenglish.io/navigating-your-react-app-with-th
 CSS-notes
 [] vergeet niet om class names toe te voegen aan components om styling makkelijk te maken
 [] hoewel de Navlink in react geen a-hook is, spreek je hem wél zo aan in CSS
+
+
+Notities 4 april:
+CSS-notes
+[] is body als prop zo algemeen dat het niet uitmaakt in welke stylesheet je het zet, maar gewoon
+   altijd overerft wordt?
+[] align-items is om items langs de cross-axis te manipuleren. Met flex-direction: column en
+   align-items: flex end krijg je items dus onder elkaar aan de rechterzijde van je container.
+
+
+JS-notes
+[] voor to-do list en meeste andere lijste op de pagina,weet ik niet van tevoren hoeveel items het
+   moet bevatten. Moet ik daarom de property children gebruiken?
+[] voor functionaliteit van scroller, lees dit artikel:
+   https://codedaily.io/tutorials/Build-a-Reusable-Scroll-List-Component-with-Animated-scrollTo-in-React
+[] denk nog even na over hoe er naar verschillende nummers moet worden gesprongen. Is dit via een hub-pagina
+   met simpelweg een lijstje openstaande projecten, of is dit met buttons op de pagina van het band-dashboard?
+   Op welk project moet de pagina dan by default openen? Laatst geopende?
+    [] misschien het beste om eerst te beginnen met een hub-pagina, en daarna op ieder project JS buttons
+       te implementeren waarmee dan makkelijk naar andere projecten gesprongen kan worden.
