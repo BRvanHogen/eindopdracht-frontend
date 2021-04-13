@@ -31,3 +31,6 @@ JS-notes
 JS-notes
 [] een sign-up route heb ik toch opgenomen in het topMenu. Stel je voor dat je al ingelogd bent, maar
    toch een ander account wilt aanmaken, of dit voor een ander wilt doen. Dan moet dit wel kunnen!
+[] htmlFor aan labels toegevoegd en name attributen toegevoegd aan input velden op LoginPage. Zeer
+   belangrijk om het te laten werken.
+[] misschien ook wel waard om mij eens te verdiepen in regular expressions, https://www.youtube.com/watch?v=rhzKDrUiJVk
