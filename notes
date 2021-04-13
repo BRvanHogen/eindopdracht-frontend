@@ -26,3 +26,8 @@ JS-notes
    Op welk project moet de pagina dan by default openen? Laatst geopende?
     [] misschien het beste om eerst te beginnen met een hub-pagina, en daarna op ieder project JS buttons
        te implementeren waarmee dan makkelijk naar andere projecten gesprongen kan worden.
+
+13 april
+JS-notes
+[] een sign-up route heb ik toch opgenomen in het topMenu. Stel je voor dat je al ingelogd bent, maar
+   toch een ander account wilt aanmaken, of dit voor een ander wilt doen. Dan moet dit wel kunnen!

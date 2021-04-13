@@ -11,6 +11,7 @@ function LoginPage() {
             <label>
                 <input type="text" placeholder="wachtwoord"/>
             </label>
+            <button type="button">log in</button>
         </>
     )
 }

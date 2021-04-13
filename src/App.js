@@ -5,16 +5,21 @@ import LoginPage from "./pages/LoginPage";
 import Dashboard from "./pages/Dashboard";
 import BandDashboard from "./pages/BandDashboard";
 import TopMenu from "./components/TopMenu";
+import SignUpPage from "./pages/SignUpPage";
+
 
 function App() {
     return (
-        <Router>
+        <>
             <TopMenu/>
             <Switch>
-                <Route exact path="/">
+                <Route path="/sign-up">
+                    <SignUpPage/>
+                </Route>
+                <Route path="/sign-in">
                     <LoginPage/>
                 </Route>
-                <Route path="/dashboard">
+                <Route path="/profile">
                     <Dashboard/>
                 </Route>
                 <Route path="/band-dashboard">
@@ -23,7 +28,7 @@ function App() {
                     />
                 </Route>
             </Switch>
-        </Router>
+</>
     );
 }
 
