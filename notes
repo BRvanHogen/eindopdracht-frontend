@@ -48,3 +48,4 @@ JS-notes
        bovenaan het document apart worden gedeclareerd (waar nu alleen eye staat moet er ook struckthrough komen). Dan
        een ternary om de className aan te passen zodat dit in CSS wordt opgepakt
        className={`login-box${passwordShown ? "__notVisible" : "__visible"}`}
+       
