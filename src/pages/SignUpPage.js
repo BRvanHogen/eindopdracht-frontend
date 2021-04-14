@@ -1,13 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useForm} from 'react-hook-form';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+const eye = <FontAwesomeIcon icon={faEye}/>
 
 
 function SignUpPage() {
     const {handleSubmit, register, formState: {errors}} = useForm();
+    const [passwordShown, setPasswordShown] = useState(false);
 
     function onFormSubmit(data) {
         console.log(data);
     }
+
+    const togglePasswordVisibility = () => {
+        setPasswordShown(passwordShown ? false : true);
+    };
 
     return (
         <form onSubmit={handleSubmit(onFormSubmit)}>
@@ -30,12 +38,14 @@ function SignUpPage() {
             password:
             <label htmlFor="password">
                 <input
-                    type="text"
+                    type={passwordShown ? "text" : "password"}
                     name="password"
                     id="password"
                     aria-invalid={errors.password ? "true" : "false"}
                     {...register('password', {required: true})}
                 />
+                <i onClick={togglePasswordVisibility}>{eye}</i>
+
                 {errors.password && (
                     <span role="alert">
                password is required
