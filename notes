@@ -44,3 +44,7 @@ JS-notes
 [] ook moet er worden gekeken of de gebruikersnaam niet al bestaat. Of gaat dit allemaal via de backend?
     [] hoe dan ook moeten er meerdere checks plaats vinden
 [] wachtwoord verbergen en laten zien on toggle (https://dev.to/detoner777/show-hide-password-on-toggle-in-react-hooks-1lph)
+    [] dit is gelukt. Nu proberen om ook het icoontje aan te passen. Moet een extra img import komen, waarbij beiden
+       bovenaan het document apart worden gedeclareerd (waar nu alleen eye staat moet er ook struckthrough komen). Dan
+       een ternary om de className aan te passen zodat dit in CSS wordt opgepakt
+       className={`login-box${passwordShown ? "__notVisible" : "__visible"}`}

@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
+import styles from '../stylesheets/login-page.module.css';
+
 const eye = <FontAwesomeIcon icon={faEye}/>
 
 function LoginPage() {
@@ -18,8 +20,8 @@ function LoginPage() {
     };
 
     return (
-        <form onSubmit={handleSubmit(onFormSubmit)}>
-
+        <div className={styles.container}>
+        <form className={styles['login-form']} onSubmit={handleSubmit(onFormSubmit)}>
             <label htmlFor="username">
                 username:
                 <input
@@ -54,12 +56,11 @@ function LoginPage() {
                 )}
             </label>
 
-
-
             <button type="submit">
                 log in
             </button>
         </form>
+        </div>
     )
 }
 

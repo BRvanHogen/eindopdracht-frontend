@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import {useForm} from 'react-hook-form';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
-const eye = <FontAwesomeIcon icon={faEye}/>;
+import styles from '../stylesheets/signup-page.module.css';
 
+const eye = <FontAwesomeIcon icon={faEye}/>;
 
 function SignUpPage() {
     const {handleSubmit, register, formState: {errors}} = useForm();
@@ -18,7 +19,8 @@ function SignUpPage() {
     };
 
     return (
-        <form onSubmit={handleSubmit(onFormSubmit)}>
+        <div className={styles.container}>
+        <form className={styles['signup-form']} onSubmit={handleSubmit(onFormSubmit)}>
             username:
             <label htmlFor="username">
                 <input
@@ -76,6 +78,7 @@ function SignUpPage() {
                 sign up
             </button>
         </form>
+        </div>
     );
 }
 
