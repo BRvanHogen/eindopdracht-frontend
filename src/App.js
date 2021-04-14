@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
-import {BrowserRouter as Router, Switch, Route,} from 'react-router-dom';
+import {Switch, Route,} from 'react-router-dom';
 import LoginPage from "./pages/LoginPage";
 import Dashboard from "./pages/Dashboard";
 import BandDashboard from "./pages/BandDashboard";
 import TopMenu from "./components/TopMenu";
 import SignUpPage from "./pages/SignUpPage";
+import HomePage from "./pages/HomePage";
 
 
 function App() {
@@ -13,6 +14,9 @@ function App() {
         <>
             <TopMenu/>
             <Switch>
+                <Route exact path="/">
+                    <HomePage/>
+                </Route>
                 <Route path="/sign-up">
                     <SignUpPage/>
                 </Route>

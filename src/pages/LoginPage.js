@@ -1,6 +1,5 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { ErrorMessage } from '@hookform/error-message';
 
 
 function LoginPage() {
@@ -15,7 +14,7 @@ function LoginPage() {
         <form onSubmit={handleSubmit(onFormSubmit)}>
 
             <label htmlFor="username">
-                Gebruikersnaam:
+                username:
                 <input
                   type="text"
                   name="username"
@@ -25,19 +24,27 @@ function LoginPage() {
                 />
                 {errors.username && (
                     <span role="alert">
-                        dit moet
+                        username is required
                     </span>
                 )}
             </label>
 
+            <label htmlFor="password">
+                password:
+                <input
+                    type="text"
+                    name="password"
+                    id="password"
+                    aria-invalid={errors.password ? "true" : "false"}
+                    {...register('password', {required: true})}
+                />
+                {errors.password && (
+                    <span role="alert">
+                        password is required
+                    </span>
+                )}
+            </label>
 
-            {/*<fieldset>*/}
-            {/*    <input*/}
-            {/*        type="text"*/}
-            {/*        placeholder="wachtwoord"*/}
-            {/*        name="password"*/}
-            {/*    />*/}
-            {/*</fieldset>*/}
 
 
             <button type="submit">
@@ -48,9 +55,3 @@ function LoginPage() {
 }
 
 export default LoginPage;
-
-//trials
-// {...register("username", {required: true, message: "this is required" })}
-
-// https://react-hook-form.com/faqs#Howtocreateanaccessibleinputerrorandmessage
-//toch raar dat 'ie het nu niet doet.

@@ -34,3 +34,13 @@ JS-notes
 [] htmlFor aan labels toegevoegd en name attributen toegevoegd aan input velden op LoginPage. Zeer
    belangrijk om het te laten werken.
 [] misschien ook wel waard om mij eens te verdiepen in regular expressions, https://www.youtube.com/watch?v=rhzKDrUiJVk
+
+14 april
+[] in TopMenu login aangepast naar log out, er vanuit gaande dat de content (band dashboard, profile) alleen zichtbaar
+   is na inloggen. Eigenlijk moet het TopMenu zelf dus ook verborgen zijn vanaf het login-scherm.
+   [] dit betekent volgens mij dat ik de Routing moet aanpassen. TopMenu staat er nu namelijk boven
+      waardoor deze altijd zichtbaar is
+[] er moet op de bij login-pagina worden gecheckt of wachtwoord en gebruikersnaam overeen komen. Hoe doe je dit?
+[] ook moet er worden gekeken of de gebruikersnaam niet al bestaat. Of gaat dit allemaal via de backend?
+    [] hoe dan ook moeten er meerdere checks plaats vinden
+[] wachtwoord verbergen en laten zien on toggle (https://dev.to/detoner777/show-hide-password-on-toggle-in-react-hooks-1lph)
