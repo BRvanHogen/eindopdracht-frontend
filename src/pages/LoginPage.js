@@ -14,6 +14,17 @@ function LoginPage() {
     async function onFormSubmit(data) {
         // data.preventDefault();
         console.log(data);
+        try {
+            const result = await axios.post('https://localhost:8444/authenticate', {
+                username: data.username,
+                password: data.password
+            });
+
+            console.log(result);
+
+        } catch (e) {
+            console.error(e)
+        }
     }
 
     const togglePasswordVisibility = () => {
