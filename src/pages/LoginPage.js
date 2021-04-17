@@ -4,12 +4,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import styles from '../stylesheets/login-page.module.css';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const eye = <FontAwesomeIcon icon={faEye}/>
 
 function LoginPage() {
     const {handleSubmit, register, formState: { errors } } = useForm();
     const [passwordShown, setPasswordShown] = useState(false);
+    const [loginSuccess, toggleLoginSuccess] = useState(false);
+    const history = useHistory();
 
     async function onFormSubmit(data) {
         // data.preventDefault();
@@ -21,6 +24,11 @@ function LoginPage() {
             });
 
             console.log(result);
+            toggleLoginSuccess(true);
+            setTimeout(()=>{
+                history.push('/profile');
+            }, 2000);
+
 
         } catch (e) {
             console.error(e)
@@ -71,6 +79,7 @@ function LoginPage() {
             <button type="submit">
                 log in
             </button>
+            {loginSuccess === true && <p>login successful. Profile page loading</p>}
         </form>
         </div>
     )
