@@ -1,18 +1,20 @@
-import React, {useState} from 'react';
+import React, {useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import styles from '../stylesheets/login-page.module.css';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import { AuthContext } from "../context/AuthContext";
 
 const eye = <FontAwesomeIcon icon={faEye}/>
 
 function LoginPage() {
+    const { login } = useContext(AuthContext);
     const {handleSubmit, register, formState: { errors } } = useForm();
     const [passwordShown, setPasswordShown] = useState(false);
     const [loginSuccess, toggleLoginSuccess] = useState(false);
-    const history = useHistory();
+
 
     async function onFormSubmit(data) {
         console.log(data);
@@ -22,15 +24,11 @@ function LoginPage() {
                 password: data.password
             });
 
-            localStorage.setItem('jwt', result.data.jwt);
+            login(result.data.jwt);
 
             console.log(result);
-            console.log(result.data.jwt);
-            toggleLoginSuccess(true);
-            setTimeout(()=>{
-                history.push('/profile');
-            }, 2000);
 
+            toggleLoginSuccess(true);
 
         } catch (e) {
             console.error(e);
