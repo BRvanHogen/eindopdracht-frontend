@@ -15,7 +15,6 @@ function LoginPage() {
     const history = useHistory();
 
     async function onFormSubmit(data) {
-        // data.preventDefault();
         console.log(data);
         try {
             const result = await axios.post('https://localhost:8444/authenticate', {
@@ -23,7 +22,10 @@ function LoginPage() {
                 password: data.password
             });
 
+            localStorage.setItem('jwt', result.data.jwt);
+
             console.log(result);
+            console.log(result.data.jwt);
             toggleLoginSuccess(true);
             setTimeout(()=>{
                 history.push('/profile');
@@ -31,7 +33,7 @@ function LoginPage() {
 
 
         } catch (e) {
-            console.error(e)
+            console.error(e);
         }
     }
 
