@@ -43,9 +43,37 @@ JS-notes
 [] er moet op de bij login-pagina worden gecheckt of wachtwoord en gebruikersnaam overeen komen. Hoe doe je dit?
 [] ook moet er worden gekeken of de gebruikersnaam niet al bestaat. Of gaat dit allemaal via de backend?
     [] hoe dan ook moeten er meerdere checks plaats vinden
-[] wachtwoord verbergen en laten zien on toggle (https://dev.to/detoner777/show-hide-password-on-toggle-in-react-hooks-1lph)
+[x] wachtwoord verbergen en laten zien on toggle (https://dev.to/detoner777/show-hide-password-on-toggle-in-react-hooks-1lph)
     [] dit is gelukt. Nu proberen om ook het icoontje aan te passen. Moet een extra img import komen, waarbij beiden
        bovenaan het document apart worden gedeclareerd (waar nu alleen eye staat moet er ook struckthrough komen). Dan
        een ternary om de className aan te passen zodat dit in CSS wordt opgepakt
        className={`login-box${passwordShown ? "__notVisible" : "__visible"}`}
-       
+
+
+16 april
+[] maak nog een apart component voor de buttons en hang hier styling aan
+
+inloggen op pagina:
+[] axios POST request. Bij GET request geef je twee parameters mee, de url en de config. In de
+   config kan je headers meegeven.
+   [] post request: drie parameters: url, data, config. Data object bevat dan vaak minimaal email
+      en password. In mijn app misschien nog id.
+
+ Stappenplan voor registreren:
+ [x] axios installeren en importeren
+ [] async function schrijven
+ [] try/catch blok
+ [] in try: post request maken naar endpoint: https://localhost:3000/register, bij mij anders
+ [] axios post request krijgt de url en data object mee (minimaal email en password)
+ [] succesmelding tonen aan gebruiker
+    []dit dmv state
+ [] gebruiker doorsturen naar inlog formulier
+  [] misschien moet ik wel een nieuwe methode in Spring Boot schrijven (register), ik weet niet
+     zo goed hoe de  huidige createUser methode werkt... In ieder geval is endpoint /register een goed idee
+
+
+[] om iemand automatisch door te sturen naar volgende pagina, useHistory en history.push('signin') in de code
+   wil je de melding wel gewoon laten zien? Dan doe je setTimeout(()=>, 2000) functie. Het getal is aantal milliseconden
+       [] stuur iemand na registratie door naar zijn profiel page
+
+[] misschien chill om in te bouwen dat iemand met zowel username als email adres in kan loggen

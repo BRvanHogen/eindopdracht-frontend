@@ -3,6 +3,7 @@ import {useForm} from 'react-hook-form';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import styles from '../stylesheets/signup-page.module.css';
+import axios from 'axios';
 
 const eye = <FontAwesomeIcon icon={faEye}/>;
 
@@ -10,8 +11,21 @@ function SignUpPage() {
     const {handleSubmit, register, formState: {errors}} = useForm();
     const [passwordShown, setPasswordShown] = useState(false);
 
-    function onFormSubmit(data) {
+    async function onFormSubmit(data) {
         console.log(data);
+        try {
+            const result = await axios.post('https://localhost:8444/users', {
+                username: data.username,
+                password: data.password,
+                email: data.email
+            });
+
+            console.log(result);
+            // n.b. als de data keys overeen komen, mag je ook gewoon data meegeven als object hierboven
+            //trek de data (zie inputs hieronder) ook even gelijk met wat in SB applicatie required is
+        } catch (e) {
+            console.error(e)
+        }
     }
 
     const togglePasswordVisibility = () => {

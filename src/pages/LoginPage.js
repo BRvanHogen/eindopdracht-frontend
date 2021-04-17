@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import styles from '../stylesheets/login-page.module.css';
+import axios from 'axios';
 
 const eye = <FontAwesomeIcon icon={faEye}/>
 
@@ -10,7 +11,7 @@ function LoginPage() {
     const {handleSubmit, register, formState: { errors } } = useForm();
     const [passwordShown, setPasswordShown] = useState(false);
 
-    function onFormSubmit(data) {
+    async function onFormSubmit(data) {
         // data.preventDefault();
         console.log(data);
     }
