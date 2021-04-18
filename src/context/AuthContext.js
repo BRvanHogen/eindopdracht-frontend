@@ -24,6 +24,7 @@ function AuthContextProvider({ children }) {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${jwtToken}`,
+                    'Access-Control-Allow-Origin': '*'
                 }
             })
 
@@ -91,10 +92,11 @@ function AuthContextProvider({ children }) {
     //anders slechts de loading status
     return (
          <AuthContext.Provider value={data}>
-             {authState.status === 'done'
-                 ? children
-             : <p>Loading ...</p>
-             }
+             {/*{authState.status === 'done'*/}
+             {/*    ? children*/}
+             {/*: <p>Loading ...</p>*/}
+             {/*}*/}
+             {children}
          </AuthContext.Provider>
     );
 }
