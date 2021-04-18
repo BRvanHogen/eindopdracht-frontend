@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../stylesheets/band-dashboard.module.css';
 import SongDetails from "../components/SongDetails";
+import ProjectsFetcher from "../components/ProjectsFetcher";
 
 
 function BandDashboard({title, children}) {
@@ -10,6 +11,7 @@ function BandDashboard({title, children}) {
             <p>dit is het dashboard van je band</p>
             <p>klik <Link to="/dashboard">hier</Link> om terug te gaan naar je persoonlijke dashboard</p>
             <Link to="/">uitloggen</Link>
+            <ProjectsFetcher/>
             <h2>{title}</h2>
             <div className={styles.notitions}>
                 <h2>to do:</h2>
