@@ -1,0 +1,36 @@
+.button {
+    box-sizing: border-box;
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    padding: 0;
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: hsl(51, 100%, 50%);
+    color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+
+    padding: 0.25em 0.75em;
+    min-width: 10ch;
+    min-height: 44px;
+
+    text-align: center;
+    line-height: 1.1;
+
+    transition: 220ms all ease-in-out;
+}
+
+.button:hover {
+    background-color: hsl(51, 100%, 40%);
+}
+
+.button:focus {
+    outline-style: solid;
+    outline-color: transparent;
+    box-shadow: 0 0 0 4px hsl(51, 100%, 30%);
+}

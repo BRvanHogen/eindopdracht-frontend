@@ -1,13 +1,10 @@
 import React, {useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
 import styles from '../stylesheets/login-page.module.css';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { AuthContext } from "../context/AuthContext";
-
-const eye = <FontAwesomeIcon icon={faEye}/>
 
 function LoginPage() {
     const { login } = useContext(AuthContext);
@@ -67,7 +64,7 @@ function LoginPage() {
                     aria-invalid={errors.password ? "true" : "false"}
                     {...register('password', {required: true})}
                 />
-                <i onClick={togglePasswordVisibility}>{eye}</i>
+                <i onClick={togglePasswordVisibility}>{passwordShown ? <p>🙊</p> : <p>🙈</p>}</i>
 
                 {errors.password && (
                     <span role="alert">

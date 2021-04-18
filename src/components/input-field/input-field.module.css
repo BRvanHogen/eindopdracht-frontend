@@ -1,0 +1,33 @@
+:root {
+    --input-border: hsl(300, 1%, 54%);
+}
+
+/*browser reset*/
+.input-field,
+.input-field::before,
+.input-field::after {
+    box-sizing: border-box;
+}
+
+
+.input-field {
+    font-size: 16px;
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    background-color: #fff;
+    border: 2px solid var(--input-border);
+    border-radius: 4px;
+    transition: 180ms box-shadow ease-in-out;
+
+}
+
+.input-field[disabled] {
+    --input-border: #ccc;
+    background-color: #eee;
+    cursor: not-allowed;
+}
+
+.input-field:focus {
+    outline-style: none;
+    box-shadow: 0 0 0 3px var(--input-border);
+}

@@ -7,6 +7,7 @@
 
 .top-menu {
     background-color: gold;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
 }
 
 ul {

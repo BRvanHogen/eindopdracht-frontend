@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from 'src/components/input-field/input-field.module.css';
+import styles from './input-field.module.css';
 import {useForm} from "react-hook-form";
 
 
@@ -8,6 +8,7 @@ function InputField({name, id}) {
     return (
         <label htmlFor={name}>
         <input
+            className={styles['input-field']}
             type="text"
             name={name}
             id={id}
