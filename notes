@@ -77,3 +77,8 @@ inloggen op pagina:
        [] stuur iemand na registratie door naar zijn profiel page
 
 [] misschien chill om in te bouwen dat iemand met zowel username als email adres in kan loggen
+
+Notities 18 april
+[] users kunnen zich zelf registeren. Krijgen dan automatisch basic rechten.
+[] degene die de band-omgeving heeft gestart, kan extra rechten toekennen en weer afnemen
+[] eventueel moet er dus ook de mogelijkheid komen om een eigen band te starten
