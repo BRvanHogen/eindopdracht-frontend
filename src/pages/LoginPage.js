@@ -1,13 +1,15 @@
-import React, {useState, useContext } from 'react';
-import { useForm } from 'react-hook-form';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, {useState, useContext} from 'react';
+import {useForm} from 'react-hook-form';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import styles from '../stylesheets/login-page.module.css';
 import axios from 'axios';
-import { AuthContext } from "../context/AuthContext";
+import {AuthContext} from "../context/AuthContext";
+import Button from "../components/button/Button";
+import InputField from "../components/input-field/InputField";
 
 function LoginPage() {
-    const { login } = useContext(AuthContext);
-    const {handleSubmit, register, formState: { errors } } = useForm();
+    const {login} = useContext(AuthContext);
+    const {handleSubmit, register, formState: {errors}} = useForm();
     const [passwordShown, setPasswordShown] = useState(false);
     const [loginSuccess, toggleLoginSuccess] = useState(false);
 
@@ -37,46 +39,57 @@ function LoginPage() {
 
     return (
         <div className={styles.container}>
-        <form className={styles['login-form']} onSubmit={handleSubmit(onFormSubmit)}>
-            <label htmlFor="username">
-                username:
-                <input
-                  type="text"
-                  name="username"
-                  id="username"
-                  aria-invalid={errors.username ? "true" : "false"}
-                  {...register('username', {required: true})}
-                />
-                {errors.username && (
-                    <span role="alert">
+            <form className={styles['login-form']} onSubmit={handleSubmit(onFormSubmit)}>
+                <fieldset>
+                    <legend>Log in</legend>
+                    <label htmlFor="username">
+                        username:
+                        <input
+                            type="text"
+                            name="username"
+                            id="username"
+                            aria-invalid={errors.username ? "true" : "false"}
+                            {...register('username', {required: true})}
+                        />
+                        {/*    <InputField*/}
+                        {/*    name="username"*/}
+                        {/*    id="username"*/}
+                        {/*    />*/}
+                        {errors.username && (
+                            <span role="alert">
                         username is required
                     </span>
-                )}
-            </label>
+                        )}
+                    </label>
 
-            <label htmlFor="password">
-                password:
-                <input
-                    type={passwordShown ? "text" : "password"}
-                    name="password"
-                    id="password"
-                    aria-invalid={errors.password ? "true" : "false"}
-                    {...register('password', {required: true})}
-                />
-                <i onClick={togglePasswordVisibility}>{passwordShown ? <p>🙊</p> : <p>🙈</p>}</i>
+                    <label htmlFor="password">
+                        password:
+                        <input
+                            type={passwordShown ? "text" : "password"}
+                            name="password"
+                            id="password"
+                            aria-invalid={errors.password ? "true" : "false"}
+                            {...register('password', {required: true})}
+                        />
+                        <i onClick={togglePasswordVisibility}>{passwordShown ? <p>🙊</p> : <p>🙈</p>}</i>
 
-                {errors.password && (
-                    <span role="alert">
+                        {errors.password && (
+                            <span role="alert">
                         password is required
                     </span>
-                )}
-            </label>
+                        )}
+                    </label>
 
-            <button type="submit">
-                log in
-            </button>
-            {loginSuccess === true && <p>login successful. Profile page loading</p>}
-        </form>
+                    <label htmlFor="login">
+                        <Button
+                            type="submit"
+                            text="Go!"
+                        />
+                    </label>
+
+                    {loginSuccess === true && <p>login successful. Profile page loading</p>}
+                </fieldset>
+            </form>
         </div>
     )
 }

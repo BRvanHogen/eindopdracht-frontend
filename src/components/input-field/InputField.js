@@ -7,6 +7,7 @@ function InputField({name, id}) {
     const {register, formState: { errors }} = useForm();
     return (
         <label htmlFor={name}>
+            {name}:
         <input
             className={styles['input-field']}
             type="text"
@@ -14,9 +15,9 @@ function InputField({name, id}) {
             id={id}
             {...register(`${name}`, {required: true})}
         />
-            {errors.name && (
+            {errors[{name}] && (
                 <span role="alert">
-                    {name} is required
+                    {name} is required!
                 </span>
             )}
         </label>

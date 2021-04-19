@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from '../../stylesheets/top-menu.module.css';
+import styles from './top-menu.module.css';
 
 function TopMenu() {
     return (

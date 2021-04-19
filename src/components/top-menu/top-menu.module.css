@@ -1,11 +1,9 @@
-@import '../assets/fonts/fonts.css';
-
-* {
-    margin: 0;
-    padding: 0;
-}
+@import '../../assets/fonts/fonts.css';
 
 .top-menu {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     background-color: gold;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
 }
@@ -17,13 +15,18 @@ ul {
 }
 
 
-.active-link {
-    text-decoration: underline;
+/*.active-link {*/
+/*    text-decoration: underline blanchedalmond;*/
+/*}*/
+
+.top-menu .active-link {
+    font-weight: bold;
 }
 
 
-a {
+.top-menu a {
     text-decoration: none;
+    color: #999;
 }
 
 a::after {
@@ -38,3 +41,4 @@ a::after {
 a:hover::after {
     width: 100%;
 }
+
