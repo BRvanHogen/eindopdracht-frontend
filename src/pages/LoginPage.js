@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from '../stylesheets/login-page.module.css';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
 import { AuthContext } from "../context/AuthContext";
 
 function LoginPage() {
@@ -20,7 +19,7 @@ function LoginPage() {
                 username: data.username,
                 password: data.password
             });
-
+            //login functie uit AuthContext wordt aangeroepen en jwt wordt meegegeven uit results, zodat we hem in AuthContext kunnen ontvangen
             login(result.data.jwt);
 
             console.log(result);

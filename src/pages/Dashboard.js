@@ -7,7 +7,7 @@ import InputField from "../components/input-field/InputField";
 
 function Dashboard() {
     const { user } = useContext(AuthContext);
-    console.log(user);
+    console.log(user); //is op het moment null. Vandaar hieronder ook leeg.
 
     return (
         <>
