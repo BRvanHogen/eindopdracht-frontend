@@ -1,11 +1,11 @@
 import React, {useState, useContext} from 'react';
 import {useForm} from 'react-hook-form';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import styles from '../stylesheets/login-page.module.css';
+import styles from './login-page.module.css';
 import axios from 'axios';
-import {AuthContext} from "../context/AuthContext";
-import Button from "../components/button/Button";
-import InputField from "../components/input-field/InputField";
+import {AuthContext} from "../../context/AuthContext";
+import Button from "../../components/button/Button";
+import InputField from "../../components/input-field/InputField";
 
 function LoginPage() {
     const {login} = useContext(AuthContext);

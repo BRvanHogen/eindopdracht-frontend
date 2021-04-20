@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 import {Switch, Route,} from 'react-router-dom';
-import LoginPage from "./pages/LoginPage";
+import LoginPage from "./pages/login-page/LoginPage";
 import Dashboard from "./pages/Dashboard";
 import BandDashboard from "./pages/BandDashboard";
 import TopMenu from "./components/top-menu/TopMenu";
-import SignUpPage from "./pages/SignUpPage";
+import SignUpPage from "./pages/signup-page/SignUpPage";
 import HomePage from "./pages/HomePage";
 
 

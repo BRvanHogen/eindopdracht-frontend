@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: center;
 
-    background-color: hsl(51, 100%, 50%);
+    background-color: var(--font);
     color: #fff;
     border-radius: 6px;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
@@ -26,11 +26,11 @@
 }
 
 .button:hover {
-    background-color: hsl(51, 100%, 40%);
+    background-color: hsl(250, 40%, 50%);
 }
 
 .button:focus {
     outline-style: solid;
     outline-color: transparent;
-    box-shadow: 0 0 0 4px hsl(51, 100%, 30%);
+    box-shadow: 0 0 0 4px hsl(250, 40%, 40%);
 }

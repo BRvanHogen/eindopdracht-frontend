@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import {useForm} from 'react-hook-form';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import styles from '../stylesheets/signup-page.module.css';
+import styles from './signup-page.module.css';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import Button from "../../components/button/Button";
 
 function SignUpPage() {
     const {handleSubmit, register, formState: {errors}} = useForm();
@@ -43,8 +44,10 @@ function SignUpPage() {
     return (
         <div className={styles.container}>
             <form className={styles['signup-form']} onSubmit={handleSubmit(onFormSubmit)}>
-                username:
+                <fieldset>
+                    <legend>Sign up</legend>
                 <label htmlFor="username">
+                    username:
                     <input
                         type="text"
                         name="username"
@@ -59,8 +62,8 @@ function SignUpPage() {
                     )}
                 </label>
 
-                password:
                 <label htmlFor="password">
+                    password:
                     <input
                         type={passwordShown ? "text" : "password"}
                         name="password"
@@ -77,8 +80,9 @@ function SignUpPage() {
                     )}
                 </label>
 
-                email:
+
                 <label htmlFor="email">
+                    email:
                     <input
                         type="text"
                         name="email"
@@ -97,8 +101,9 @@ function SignUpPage() {
                     )}
                 </label>
 
-                register account
+
                 <label>
+                    register account
                     <input
                         type="checkbox"
                         name="enabled"
@@ -115,12 +120,15 @@ function SignUpPage() {
                     )}
                 </label>
 
-                <button type="submit">
-                    sign up
-                </button>
+                <Button
+                type="submit"
+                text="Go!"
+                />
+
                 {signUpSuccess === true &&
                 <p>sign up successful. Profile page loading...</p>
                 }
+                </fieldset>
             </form>
         </div>
     );

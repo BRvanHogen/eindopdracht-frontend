@@ -35,7 +35,8 @@ function AuthContextProvider({ children }) {
 
             setAuthState({
                 user: {
-                    username: result.data.username
+                    username: result.data.username,
+                    id: result.data.sub
                 },
                 status: 'done',
             });
@@ -49,8 +50,7 @@ function AuthContextProvider({ children }) {
 
     useEffect(()=> {
         const token = localStorage.getItem('jwt');
-        if (token !== undefined && authState.user === null) {
-
+        if (token !== null && authState.user === null) {
             fetchUserData(token);
 
         } else {

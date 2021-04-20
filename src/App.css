@@ -1,6 +1,14 @@
 @import './assets/fonts/fonts.css';
 
+:root {
+    --background: hsl(250, 40%, 14%);
+    /*--font: hsl(250, 70%, 59%);*/
+    --font: hsl(250, 40%, 64%);
+}
+
 body {
     font-family: 'Core Sans G', Arial, sans-serif;
-    background-color: blanchedalmond;
+    background-color: var(--background);
+    color: var(--font);
 }
+
