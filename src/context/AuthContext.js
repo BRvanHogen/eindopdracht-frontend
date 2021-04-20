@@ -28,7 +28,8 @@ function AuthContextProvider({ children }) {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${jwtToken}`,
-                    'Access-Control-Allow-Origin': '*'
+                    // 'Access-Control-Allow-Origin': '*',
+                    // crossorigin:true
                 }
             })
             console.log(result);
