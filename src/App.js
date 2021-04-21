@@ -7,6 +7,7 @@ import BandDashboard from "./pages/BandDashboard";
 import TopMenu from "./components/top-menu/TopMenu";
 import SignUpPage from "./pages/signup-page/SignUpPage";
 import HomePage from "./pages/HomePage";
+import ProjectsPage from "./pages/projects-page/ProjectsPage";
 
 
 function App() {
@@ -30,6 +31,9 @@ function App() {
                     <BandDashboard
                         title="Deze Song"
                     />
+                </Route>
+                <Route path="/projects">
+                    <ProjectsPage/>
                 </Route>
             </Switch>
 </>

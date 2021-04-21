@@ -28,8 +28,6 @@ function AuthContextProvider({ children }) {
                 headers: {
                     "Content-Type": "application/json",
                     Authorization: `Bearer ${jwtToken}`,
-                    // 'Access-Control-Allow-Origin': '*',
-                    // crossorigin:true
                 }
             })
             console.log(result);
@@ -76,6 +74,11 @@ async function loginFunction(jwtToken) {
     function logoutFunction() {
         //leeghalen van local storage met localStorage.clear()
         // user in de context weer op 'null' zetten
+        localStorage.clear();
+        setAuthState({
+            user: null,
+            status: 'done',
+        });
     }
 
     const data = {

@@ -8,7 +8,7 @@ import UploadAvatar from "../components/avatar/UploadAvatar";
 
 
 function Dashboard() {
-    const { user } = useContext(AuthContext);
+    const { user, logout } = useContext(AuthContext);
     console.log(user); //is op het moment null. Vandaar hieronder ook leeg.
 
     return (
@@ -16,7 +16,11 @@ function Dashboard() {
             <UploadAvatar/>
             <p>welkom {user && user.username}</p>
             <p>ga <Link to="/band-dashboard">hier</Link> naar de pagina van je band</p>
-            <Link to="/">uitloggen</Link>
+            <Button
+                type="button"
+                onClick={logout}
+                text="log out"
+            />
         </>
     )
 }
