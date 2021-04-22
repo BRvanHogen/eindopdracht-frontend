@@ -82,3 +82,12 @@ Notities 18 april
 [] users kunnen zich zelf registeren. Krijgen dan automatisch basic rechten.
 [] degene die de band-omgeving heeft gestart, kan extra rechten toekennen en weer afnemen
 [] eventueel moet er dus ook de mogelijkheid komen om een eigen band te starten
+
+Notities 21 april
+Wat de comments betreft:
+[x] user ziet eigen input real-time, is immers textarea
+[x] na klik op submit, wordt er een axios post method aangeroepen die de comment opslaat in de database.
+    [] zet benodigde paden open via backend
+[] de pagina moet worden ververst en de comment wordt aangeroepen. Ook na in en uitloggen.
+    [] onClick moet er dus een post method aangeroepen worden
+    [] onMount (gebruik useEffect) moet er dus een getMethode worden aangeroepen

@@ -23,7 +23,6 @@ function AuthContextProvider({ children }) {
 
 
         try {
-            console.log("test");
             const result = await axios.get(`https://localhost:8444/users/${userId}`, {
                 headers: {
                     "Content-Type": "application/json",

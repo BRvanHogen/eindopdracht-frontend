@@ -15,7 +15,6 @@ function LoginPage() {
 
 
     async function onFormSubmit(data) {
-        console.log(data);
         try {
             const result = await axios.post('https://localhost:8444/authenticate', {
                 username: data.username,
