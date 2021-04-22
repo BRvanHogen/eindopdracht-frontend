@@ -1,9 +1,13 @@
 import React from 'react';
-
+import NewProject from "../../components/new-project/NewProject";
+import ProjectsFetcher from "../../components/ProjectsFetcher";
 
 function ProjectsPage() {
     return (
-        <p>hoi</p>
+        <>
+        <NewProject/>
+        <ProjectsFetcher/>
+        </>
     );
 }
 

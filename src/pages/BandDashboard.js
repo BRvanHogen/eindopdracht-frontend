@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styles from '../stylesheets/band-dashboard.module.css';
 import SongDetails from "../components/SongDetails";
 import ProjectsFetcher from "../components/ProjectsFetcher";
+import Comment from "../components/comment/Comment";
 
 
 function BandDashboard({title, children}) {
@@ -15,7 +16,7 @@ function BandDashboard({title, children}) {
             <h2>{title}</h2>
             <div className={styles.notitions}>
                 <h2>to do:</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, hic! Accusamus, hic!</p>
+                    <Comment/>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, hic!</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, hic!</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, hic!</p>
