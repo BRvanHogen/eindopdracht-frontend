@@ -40,7 +40,7 @@ function UploadAvatar() {
                 style={{
                     height: "60px",
                     width: "60px",
-                    border: "1px dashed black"
+                    border: "1px dashed hotpink"
                 }}
                 onClick={() => avatarUploader.current.click()}
             >
