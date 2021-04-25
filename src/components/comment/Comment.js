@@ -41,13 +41,3 @@ function Comment() {
 }
 
 export default Comment;
-
-
-//[x] useState bij begin ""
-//[ ] useState wordt aangepast o.b.v. e.target.value
-//[ ] user activity tracken door event
-//[ ] user moet input kunnen submitten d.m.v. form
-//[ ] comment moet opgeslagen worden in db voor volgende keren
-//[ ] axios importeren, async function, try/catch etc.
-
-// [ ] apart component aanmaken voor getten van comments

@@ -37,6 +37,7 @@ function LoginPage() {
     };
 
     return (
+        <>
         <div className={styles.container}>
             <form className={styles['login-form']} onSubmit={handleSubmit(onFormSubmit)}>
                 <fieldset>
@@ -90,6 +91,11 @@ function LoginPage() {
                 </fieldset>
             </form>
         </div>
+         <div className={styles['pacman-container']}>
+        <div className={styles.pacman}>
+        </div>
+         </div>
+        </>
     )
 }
 
