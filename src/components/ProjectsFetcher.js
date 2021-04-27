@@ -1,12 +1,9 @@
 import React, {useContext, useState} from 'react';
-import {useHistory} from 'react-router-dom';
 import axios from 'axios';
 import {AuthContext} from "../context/AuthContext";
 import Button from "./button/Button";
-import {set} from "react-hook-form";
 
 function ProjectsFetcher() {
-    const history = useHistory();
     const {jwtToken} = useContext(AuthContext);
     const [songs, setSongs] = useState([]);
 

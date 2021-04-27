@@ -6,16 +6,18 @@ import axios from 'axios';
 import {AuthContext} from "../../context/AuthContext";
 import Button from "../../components/button/Button";
 import InputField from "../../components/input-field/InputField";
+import LoadingAnimation from "../../components/loading-disc/LoadingAnimation";
 
 function LoginPage() {
     const {login} = useContext(AuthContext);
     const {handleSubmit, register, formState: {errors}} = useForm();
     const [passwordShown, setPasswordShown] = useState(false);
     const [loginSuccess, toggleLoginSuccess] = useState(false);
-
+    const [loading, toggleLoading] = useState(false);
 
     async function onFormSubmit(data) {
         try {
+            toggleLoading(true);
             const result = await axios.post('https://localhost:8444/authenticate', {
                 username: data.username,
                 password: data.password
@@ -25,9 +27,11 @@ function LoginPage() {
 
             console.log(result);
 
+            toggleLoading(false);
             toggleLoginSuccess(true);
 
         } catch (e) {
+            toggleLoading(false);
             console.error(e);
         }
     }
@@ -91,6 +95,7 @@ function LoginPage() {
                 </fieldset>
             </form>
         </div>
+            {toggleLoading === true && <LoadingAnimation/>}
          <div className={styles['pacman-container']}>
         <div className={styles.pacman}>
         </div>
