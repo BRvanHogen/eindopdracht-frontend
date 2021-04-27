@@ -1,0 +1,11 @@
+:root {
+    --gradient: linear-gradient(90deg, hsl(250, 40%, 44%) 0%, hsl(250, 40%, 64%) 35%, hsl(250, 40%, 90%) 100%);
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 200px solid transparent;
+    border-bottom: 50px solid mediumpurple;
+    opacity: 0.2;
+}

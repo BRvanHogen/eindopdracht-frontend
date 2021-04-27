@@ -7,6 +7,7 @@ import {useHistory} from 'react-router-dom';
 import Button from "../../components/button/Button";
 import {Spring} from 'react-spring';
 import {motion} from "framer-motion";
+import Triangle from "../../components/decoration/triangle/Triangle";
 
 function SignUpPage() {
     const {handleSubmit, register, formState: {errors}} = useForm();
@@ -142,6 +143,7 @@ function SignUpPage() {
             >
                 Sign up or login!
             </motion.div>
+            <Triangle/>
         </div>
 
 

@@ -7,6 +7,7 @@ import {AuthContext} from "../../context/AuthContext";
 import Button from "../../components/button/Button";
 import InputField from "../../components/input-field/InputField";
 import LoadingAnimation from "../../components/loading-disc/LoadingAnimation";
+import ClipAnimation from "../../components/decoration/clip-animation/ClipAnimation";
 
 function LoginPage() {
     const {login} = useContext(AuthContext);
@@ -96,10 +97,11 @@ function LoginPage() {
             </form>
         </div>
             {toggleLoading === true && <LoadingAnimation/>}
-         <div className={styles['pacman-container']}>
-        <div className={styles.pacman}>
-        </div>
-         </div>
+        {/* <div className={styles['pacman-container']}>*/}
+        {/*<div className={styles.pacman}>*/}
+        {/*</div>*/}
+        {/* </div>*/}
+            <ClipAnimation/>
         </>
     )
 }

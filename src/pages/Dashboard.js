@@ -5,6 +5,7 @@ import Button from "../components/button/Button";
 import InputField from "../components/input-field/InputField";
 import AvatarCropper from "../components/avatar/AvatarCropper";
 import UploadAvatar from "../components/avatar/UploadAvatar";
+import LoadingRipple from "../components/loading-disc/loadingRipple";
 
 
 function Dashboard() {
@@ -21,7 +22,9 @@ function Dashboard() {
                 onClick={logout}
                 text="log out"
             />
+            <LoadingRipple/>
         </>
+
     )
 }
 

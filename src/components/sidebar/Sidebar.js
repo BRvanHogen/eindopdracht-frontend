@@ -11,6 +11,7 @@ import {
     FiArrowLeftCircle
 } from "react-icons/all";
 import styles from './sidebar.module.css';
+import Triangle from "../decoration/triangle/Triangle";
 
 
 function Sidebar() {
