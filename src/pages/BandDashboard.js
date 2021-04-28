@@ -7,6 +7,8 @@ import Comment from "../components/comment/Comment";
 import UploadFile from "../components/upload-file/UploadFile";
 import Sidebar from "../components/sidebar/Sidebar";
 import axios from 'axios';
+import GetComment from "../components/comment/GetComment";
+import Button from "../components/button/Button";
 
 function BandDashboard({title, children}) {
     const [comments, setComments] = useState([]);
@@ -23,9 +25,9 @@ function BandDashboard({title, children}) {
         } catch (e) {
             console.error(e);
         }
-        useEffect(()=>{
-            FetchComments();
-        },[])
+        // useEffect(()=>{
+        //     FetchComments();
+        // },[])
     }
 
 
@@ -38,6 +40,10 @@ function BandDashboard({title, children}) {
             <div className={styles.notitions}>
                 <h2>to do:</h2>
                     <Comment/>
+                <Button
+                text="load comments"
+                onClick={FetchComments}
+                />
                 {comments.map((comment) => {
                     return (
                        <ul>
@@ -45,9 +51,6 @@ function BandDashboard({title, children}) {
                        </ul>
                     )
                 })}
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, hic!</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, hic!</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, hic!</p>
                     {children}
             </div>
 

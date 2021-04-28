@@ -1,10 +1,11 @@
 import React, { useContext, useEffect } from 'react';
 import axios from 'axios';
 import {AuthContext} from "../../context/AuthContext";
+import Button from "../button/Button";
 
 function GetComment() {
 
-    useEffect(() => {
+    // useEffect(() => {
 
         async function FetchComments() {
             const {jwtToken} = useContext(AuthContext);
@@ -23,15 +24,17 @@ function GetComment() {
                 console.error(e);
             }
         }
-        FetchComments();
-    }, []);
+    //     FetchComments();
+    // }, []);
 
 
 
     return (
-        <>
-        <p>hoi</p>
-        </>
+
+        <Button
+        text="load comments"
+        onClick={FetchComments}
+        />
     )
 
 }

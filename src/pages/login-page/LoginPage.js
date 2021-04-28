@@ -8,6 +8,7 @@ import Button from "../../components/button/Button";
 import InputField from "../../components/input-field/InputField";
 import LoadingAnimation from "../../components/loading-disc/LoadingAnimation";
 import ClipAnimation from "../../components/decoration/clip-animation/ClipAnimation";
+import LoadingRipple from "../../components/loading-disc/loadingRipple";
 
 function LoginPage() {
     const {login} = useContext(AuthContext);
@@ -96,7 +97,7 @@ function LoginPage() {
                 </fieldset>
             </form>
         </div>
-            {toggleLoading === true && <LoadingAnimation/>}
+            {loading === true && <LoadingRipple/>}
         {/* <div className={styles['pacman-container']}>*/}
         {/*<div className={styles.pacman}>*/}
         {/*</div>*/}

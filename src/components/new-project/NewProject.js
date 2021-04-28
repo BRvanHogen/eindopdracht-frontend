@@ -1,12 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 import Button from "../button/Button";
 import { useForm } from "react-hook-form";
+import { useHistory } from 'react-router-dom';
 
 
 
 function NewProject() {
     const {handleSubmit, register, formState: {errors}} = useForm();
+    const history = useHistory();
+    const [projectCreated, toggleProjectCreated] = useState(false);
 
     async function startNewProject(data) {
         console.log(data);
@@ -15,12 +18,17 @@ function NewProject() {
                 name: data.name,
                 workingTitle: data.workingTitle,
             })
+
+            toggleProjectCreated(true);
+
+            setTimeout(() => {
+                history.push(`/projects${data.name}`);
+            }, 2000);
+
         } catch (e) {
             console.error(e);
         }
     }
-
-    //en automatisch doorpushen naar project pagina.
 
     return (
         <form onSubmit={handleSubmit(startNewProject)}>
@@ -53,7 +61,10 @@ function NewProject() {
                 />
             </label>
         </fieldset>
+            {projectCreated === true &&
+            <p>project created. You will be redirected to project page</p>}
         </form>
+
     );
 }
 

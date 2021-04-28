@@ -22,7 +22,6 @@ function Dashboard() {
                 onClick={logout}
                 text="log out"
             />
-            <LoadingRipple/>
         </>
 
     )
