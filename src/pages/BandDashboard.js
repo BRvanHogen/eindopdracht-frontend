@@ -47,6 +47,7 @@ function BandDashboard({title, children}) {
                 {comments.map((comment) => {
                     return (
                        <ul>
+                           <p>{comment.timestamp}</p>
                            <p>{comment.textareaInput}</p>
                        </ul>
                     )
