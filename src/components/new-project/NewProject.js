@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import axios from 'axios';
 import Button from "../button/Button";
 import { useForm } from "react-hook-form";
 import { useHistory } from 'react-router-dom';
+import {ProjectContext} from "../../context/ProjectContext";
 
 
 
@@ -10,6 +11,7 @@ function NewProject() {
     const {handleSubmit, register, formState: {errors}} = useForm();
     const history = useHistory();
     const [projectCreated, toggleProjectCreated] = useState(false);
+    const {set} = useContext(ProjectContext);
 
     async function startNewProject(data) {
         console.log(data);
@@ -17,7 +19,10 @@ function NewProject() {
             const response = await axios.post('https://localhost:8444/projects', {
                 name: data.name,
                 workingTitle: data.workingTitle,
-            })
+            });
+
+            // set(response.data.name);
+            // console.log('set', set);
 
             toggleProjectCreated(true);
 

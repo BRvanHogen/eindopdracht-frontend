@@ -89,10 +89,6 @@ async function loginFunction(jwtToken) {
 
     return (
          <AuthContext.Provider value={data}>
-             {/*{authState.status === 'done' && authState.user !== null */}
-             {/*    ? children*/}
-             {/*: <p>Loading ...</p>*/}
-             {/*}*/}
              {children}
          </AuthContext.Provider>
     );

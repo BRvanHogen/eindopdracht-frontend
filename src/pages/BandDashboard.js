@@ -9,6 +9,7 @@ import Sidebar from "../components/sidebar/Sidebar";
 import axios from 'axios';
 import GetComment from "../components/comment/GetComment";
 import Button from "../components/button/Button";
+import TimeFormatter from "../helpers/TimeFormatter";
 
 function BandDashboard({title, children}) {
     const [comments, setComments] = useState([]);
@@ -22,6 +23,7 @@ function BandDashboard({title, children}) {
             const response = await axios.get('https://localhost:8444/comments')
             console.log(response.data);
             setComments(response.data);
+
         } catch (e) {
             console.error(e);
         }
@@ -29,6 +31,8 @@ function BandDashboard({title, children}) {
         //     FetchComments();
         // },[])
     }
+
+
 
 
     return (
@@ -47,7 +51,7 @@ function BandDashboard({title, children}) {
                 {comments.map((comment) => {
                     return (
                        <ul>
-                           <p>{comment.timestamp}</p>
+                           <p>{TimeFormatter(comment.timestamp)}</p>
                            <p>{comment.textareaInput}</p>
                        </ul>
                     )
