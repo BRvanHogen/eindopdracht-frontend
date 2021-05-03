@@ -18,7 +18,8 @@ function NewProject() {
         try {
             const response = await axios.post('https://localhost:8444/projects', {
                 name: data.name,
-                workingTitle: data.workingTitle,
+                workingTitle: data['working-title'],
+                // id: data.id,
             });
 
             // set(response.data.name);
@@ -58,6 +59,13 @@ function NewProject() {
                     {...register('working-title')}
                 />
             </label>
+
+            {/*<input*/}
+            {/*type="text"*/}
+            {/*disabled={true}*/}
+            {/*placeholder="id = auto-assign"*/}
+            {/*{...register('id')}*/}
+            {/*/>*/}
 
             <label>
                 <Button

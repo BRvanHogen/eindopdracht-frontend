@@ -1,15 +1,21 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import axios from 'axios';
 import {AuthContext} from "../context/AuthContext";
 import Button from "./button/Button";
+import {ProjectContext} from "../context/ProjectContext";
+import { useHistory } from 'react-router-dom';
+
 
 function ProjectsFetcher() {
     const {jwtToken} = useContext(AuthContext);
     const [songs, setSongs] = useState([]);
+    const history = useHistory();
+    const {set} = useContext(ProjectContext);
+
 
     async function fetchProjects() {
         try {
-            const result = await axios.get('https://localhost:8444/projects')
+            const result = await axios.get(`https://localhost:8444/projects`)
             console.log(result.data);
             setSongs(result.data);
 
@@ -29,9 +35,12 @@ function ProjectsFetcher() {
                 console.log(song.name, song.workingTitle, song.id);
                 return (
                     <ul>
-                        {song.name}
-                        {/*{song.workingTitle}*/}
-                        {/*{song.id}*/}
+                        <Button
+                        text={song.name}
+                        type="button"
+                        key={song.name}
+                        onClick={set(song.name)}
+                        />
                     </ul>
                 )
             })}

@@ -10,7 +10,7 @@ import LoadingRipple from "../components/loading-disc/loadingRipple";
 
 function Dashboard() {
     const { user, logout } = useContext(AuthContext);
-    console.log(user); //is op het moment null. Vandaar hieronder ook leeg.
+    console.log(user);
 
     return (
         <>

@@ -1,7 +1,7 @@
 .clip-animation {
     width: 280px;
     height: 280px;
-    background: mediumpurple center no-repeat;
+    background: mediumpurple;
     background-size: cover;
     clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
     animation: clips 3s ease infinite;

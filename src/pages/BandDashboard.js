@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../stylesheets/band-dashboard.module.css';
 import SongDetails from "../components/SongDetails";
@@ -10,9 +10,11 @@ import axios from 'axios';
 import GetComment from "../components/comment/GetComment";
 import Button from "../components/button/Button";
 import TimeFormatter from "../helpers/TimeFormatter";
+import {ProjectContext} from "../context/ProjectContext";
 
 function BandDashboard({title, children}) {
     const [comments, setComments] = useState([]);
+    const {name, id} = useContext(ProjectContext);
 
     //display comments on screen
 //import axios, async function, try/catch
@@ -40,7 +42,8 @@ function BandDashboard({title, children}) {
             <p>klik <Link to="/projects">hier</Link> voor de projectportal</p>
             <Link to="/">uitloggen</Link>
 
-            <h2>{title}</h2>
+            {/*deze is nu null want project name en id worden niet opgeslagen in de context*/}
+            <h2>{name}</h2>
             <div className={styles.notitions}>
                 <h2>to do:</h2>
                     <Comment/>

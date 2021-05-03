@@ -11,6 +11,9 @@ function ProjectContextProvider({children}) {
 
     async function fetchProjectData(name) {
         console.log('name:', name);
+        // if (name !== undefined) {
+        //     console.log(name.target.innerHTML);
+        // }
 
         try {
             const result = await axios.get(`https://localhost:8444/projects/${name}`,
@@ -43,15 +46,17 @@ function ProjectContextProvider({children}) {
                 status: 'done',
             });
         }
-    }, []);
-
+    }
+    , []);
+//hier op 2/5 een gewone (niet-async) functie van gemaakt
     async function setProject(name) {
         localStorage.setItem('name', name);
-        fetchProjectData(name);
+        //door onderstaande regel werd de loop veroorzaakt:
+        // fetchProjectData(name);
     }
 
     function exitProject() {
-        localStorage.clear();
+        localStorage.removeItem('name');
         setProjectState({
             project: null,
             status: 'done',
