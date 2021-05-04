@@ -9,7 +9,8 @@ function DeleteProject() {
     const { project, exit } = useContext(ProjectContext);
 
     //project parameter verwijderd uit functie. Nu geen foutmelding 'can not read property of undefined'
-    async function DeleteThisProject() {
+    //grapje.
+    async function DeleteThisProject(project) {
         try {
             console.log(project.name);
             const response = await axios.delete(`https://localhost:8444/projects/${project.name}`)
