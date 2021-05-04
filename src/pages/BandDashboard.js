@@ -42,7 +42,7 @@ function BandDashboard({title, children}) {
             <Link to="/">uitloggen</Link>
 
             {/*deze is nu null want project name en id worden niet opgeslagen in de context*/}
-            <h2>{projectName}</h2>
+            <h2>{projectName && projectName}</h2>
             <div className={styles.notitions}>
                 <h2>to do:</h2>
                     <Comment/>
