@@ -37,11 +37,11 @@ function ProjectsFetcher() {
 
                 return (
                     <ul>
-                        <li key={song.name}>
+                        <li key={song.id}>
                         <Button
                         text={song.name}
                         type="button"
-                        // key={song.name}
+                        // key={song.id}
                         onClick={()=>set(song.name)}
                         />
                         </li>

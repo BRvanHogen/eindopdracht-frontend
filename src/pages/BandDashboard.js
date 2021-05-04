@@ -14,11 +14,10 @@ import {ProjectContext} from "../context/ProjectContext";
 
 function BandDashboard({title, children}) {
     const [comments, setComments] = useState([]);
-    const {name, id} = useContext(ProjectContext);
-
-    //display comments on screen
-//import axios, async function, try/catch
-//useEffect: dependencies = post-request (comment)
+    const { ...projectState } = useContext(ProjectContext);
+    console.log(projectState);
+    const projectName = (localStorage.getItem('name'));
+    console.log(projectName);
 
     async function FetchComments() {
         try {
@@ -43,7 +42,7 @@ function BandDashboard({title, children}) {
             <Link to="/">uitloggen</Link>
 
             {/*deze is nu null want project name en id worden niet opgeslagen in de context*/}
-            <h2>{name}</h2>
+            <h2>{projectName}</h2>
             <div className={styles.notitions}>
                 <h2>to do:</h2>
                     <Comment/>
