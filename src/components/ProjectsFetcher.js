@@ -31,16 +31,20 @@ function ProjectsFetcher() {
                 onClick={fetchProjects}
                 text="load projects"
             />
-            {songs.map((song) =>{
-                console.log(song.name, song.workingTitle, song.id);
+
+            {songs.map((song) => {
+                console.log(song.name, song.workingTitle, song.id)
+
                 return (
                     <ul>
+                        <li key={song.name}>
                         <Button
                         text={song.name}
                         type="button"
-                        key={song.name}
-                        onClick={set(song.name)}
+                        // key={song.name}
+                        onClick={()=>set(song.name)}
                         />
+                        </li>
                     </ul>
                 )
             })}
