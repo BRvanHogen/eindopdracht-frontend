@@ -6,7 +6,8 @@ import InputField from "../components/input-field/InputField";
 import AvatarCropper from "../components/avatar/AvatarCropper";
 import UploadAvatar from "../components/avatar/UploadAvatar";
 import LoadingRipple from "../components/loading-disc/loadingRipple";
-
+import Alert from "../components/alerts/Alert";
+import AudioPlayerScratch from "../components/audio-player/AudioPlayerScratch";
 
 function Dashboard() {
     const { user, logout } = useContext(AuthContext);
@@ -22,6 +23,7 @@ function Dashboard() {
                 onClick={logout}
                 text="log out"
             />
+            <AudioPlayerScratch/>
         </>
 
     )

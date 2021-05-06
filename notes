@@ -95,3 +95,8 @@ Wat de comments betreft:
 Notities 29 april
 [] comments geven nu een lange tijdsnotatie (incl. epoch). Zorg voor een vriendelijker format
    m.b.v. een helper-functie.
+
+Notities 6 mei
+In uploadFile: // 6 mei:
+               //probleem met Converting circular structure to JSON. Misschien is de code zelf wel fout
+               //en hoef ik helemaal niets met stringify te doen

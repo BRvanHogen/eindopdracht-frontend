@@ -11,6 +11,7 @@ import GetComment from "../components/comment/GetComment";
 import Button from "../components/button/Button";
 import TimeFormatter from "../helpers/TimeFormatter";
 import {ProjectContext} from "../context/ProjectContext";
+import AudioPlayerScratch from "../components/audio-player/AudioPlayerScratch";
 
 function BandDashboard({title, children}) {
     const [comments, setComments] = useState([]);
@@ -64,11 +65,12 @@ function BandDashboard({title, children}) {
             <div className={styles['song-details']}>
                 <SongDetails
                 songLength={'03:34'}
-                contributors={'Bob, Thalys'}
+                contributors={'Bob'}
                 lastContributionBy={'Bob'}
                 lastContributionLength={'00:45'}
                 />
                 <UploadFile/>
+                {/*<AudioPlayerScratch/>*/}
             </div>
         </>
     )

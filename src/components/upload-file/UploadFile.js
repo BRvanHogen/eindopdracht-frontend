@@ -3,6 +3,7 @@ import axios from 'axios';
 import Button from "../button/Button";
 import { useForm } from "react-hook-form";
 import {AuthContext} from "../../context/AuthContext";
+import CircularJSON from 'circular-json';
 
 function UploadFile() {
     const {handleSubmit, register, formState: {errors}} = useForm();
@@ -18,14 +19,16 @@ function UploadFile() {
         const formData = new FormData();
         formData.append('myFile', file, file.name);
     }
-    console.log(file);
+    // console.log(file);
 
 
     async function onButtonClick(formData) {
+        CircularJSON.stringify(file);
         // const formData = new FormData();
         // formData.append('myFile', file, file.name);
 
         try {
+
             const response = await axios.post('https://localhost:8444/upload-file', {
                 formData
             });
@@ -40,26 +43,29 @@ function UploadFile() {
 
         return (
             <>
-                    <input
-                    type="text"
-                    disabled={true}
-                    value={user && user.username}
-                    {...register('username')}
-                    />
+                {/*<form onSubmit={handleSubmit(onButtonClick)}>*/}
+                {/*    <input*/}
+                {/*    type="text"*/}
+                {/*    disabled={true}*/}
+                {/*    value={user && user.username}*/}
+                {/*    {...register('username')}*/}
+                {/*    />*/}
 
                     <input
                     type="file"
                     onChange={onFileChange}
+                    {...register('file')}
                     />
 
                     <Button
-                        type="button"
+                        type="submit"
                         text="upload file"
                         onClick={onButtonClick}
                     />
                 <p>{file && file.name}</p>
                 <p>{file && file.size + ' bytes'}</p>
                 <p>{file && 'type: ' + file.type}</p>
+                {/*</form>*/}
             </>
         );
     }
@@ -77,3 +83,7 @@ export default UploadFile;
 //Probleem is dat dan de event nog leeg is. Cannot
 //read property of null.
 //HEEL misschien moet de functie wel helemaal niet async?
+
+// 6 mei:
+//probleem met Converting circular structure to JSON. Misschien is de code zelf wel fout
+//en hoef ik helemaal niets met stringify te doen
