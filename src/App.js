@@ -9,6 +9,7 @@ import SignUpPage from "./pages/signup-page/SignUpPage";
 import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/projects-page/ProjectsPage";
 import Sidebar from "./components/sidebar/Sidebar";
+import TestPage from "./pages/test-page/TestPage";
 
 
 function App() {
@@ -38,6 +39,9 @@ function App() {
                 </Route>
                 <Route path="/sidebar">
                     <Sidebar/>
+                </Route>
+                <Route path="/test-page">
+                    <TestPage/>
                 </Route>
             </Switch>
 </>
