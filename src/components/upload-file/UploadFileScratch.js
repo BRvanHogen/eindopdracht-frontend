@@ -2,19 +2,23 @@ import React from 'react';
 import {useForm} from "react-hook-form";
 import Button from "../button/Button";
 import axios from 'axios';
+import punkMp3 from '../../assets/songs/Test - Punk mp3.mp3';
+import Base64Converter from "../../helpers/Base64Converter";
 
 
 function UploadFileScratch() {
     const {handleSubmit, register, formState: {errors}} = useForm();
 
-
     async function onSubmit(data) {
         try {
+            // const encodedString = Buffer.from({data}).toString('base64');
+            // const encodedFile = btoa(data);
+            const encodedFile = Base64Converter(data);
             const response = await axios.post('https://localhost:8444/upload-file', {
                 headers: {
-                    'Content-Type': 'multipart/form-data',
-                    // dit ook geprobeerd met application/json, dit stond nl. in postman bij headers
-                    data: data,
+                    'Content-Type': 'application/json',
+                    // data: encodedString,
+                    data: encodedFile,
                 }
         });
             console.log(response);
