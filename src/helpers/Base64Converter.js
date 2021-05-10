@@ -14,3 +14,4 @@ function Base64Converter (buffer) {
 export default Base64Converter;
 
 //vrij recent artikel, probeer deze eens.
+//https://pqina.nl/blog/convert-a-file-to-a-base64-string-with-javascript/
