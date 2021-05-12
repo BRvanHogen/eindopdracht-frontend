@@ -11,7 +11,7 @@ function AudioPlayerScratch() {
     return (
         <>
             {/*<button onClick={AudioPlayerScratch}>play audio</button>*/}
-            <audio className="audio-element" src={punkMp3} controls autoPlay/>
+            <audio className="audio-element" src={punkMp3} controls/>
             {/*<button onClick={togglePlaying(true)}>play</button>*/}
             {/*<button onClick={togglePlaying(false)}>pause</button>*/}
         </>
@@ -19,3 +19,10 @@ function AudioPlayerScratch() {
 }
 
 export default AudioPlayerScratch;
+
+//STRATEGIE
+// - src moet dan een get request naar de database met soundfiles zijn
+// - over de items moet gemapt worden, en net als bij BandDashboard moet een ul met een template worden gereturnd.
+// - in dit template staat dan de regel code hierboven (audio className controls)
+//      - je krijgt dan wel vrij lelijk alle players onder elkaar. Het is natuurlijk mooier als ik dit in 1 player
+//        kan integreren
