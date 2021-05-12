@@ -1,14 +1,19 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
-function Base64Converter (buffer) {
-    let bytes = new Uint8Array(buffer);
-    let len = buffer.byteLength;
-    let binary = "";
-    for (let i = 0; i < len; i++) {
-        binary += String.fromCharCode(bytes[i]);
+function Base64Converter (userInput) {
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+        const base64String = userInput
+            .replace("data:", "")
+            .replace(/^.+,/, "");
+        console.log(base64String);
     }
-    return window.btoa(binary);
-};
+    if (userInput) {
+        reader.readAsDataURL(userInput);
+    }
+        }
+
 
 
 export default Base64Converter;

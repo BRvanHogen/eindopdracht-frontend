@@ -18,7 +18,7 @@ function UploadFileScratch() {
                 headers: {
                     'Content-Type': 'application/json',
                     // data: encodedString,
-                    data: encodedFile,
+                    'content': encodedFile,
                 }
         });
             console.log(response);
@@ -26,9 +26,9 @@ function UploadFileScratch() {
             console.error(e);
         }
     }
-
+    // encType="multipart/form-data"
     return (
-        <form encType="multipart/form-data" onSubmit={handleSubmit(onSubmit)}>
+        <form  onSubmit={handleSubmit(onSubmit)}>
             <input
                 type="file"
                 name="file"

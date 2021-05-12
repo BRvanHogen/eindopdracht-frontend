@@ -100,3 +100,11 @@ Notities 6 mei
 In uploadFile: // 6 mei:
                //probleem met Converting circular structure to JSON. Misschien is de code zelf wel fout
                //en hoef ik helemaal niets met stringify te doen
+
+ Notities 11 mei
+ - bekijk dit: https://stackoverflow.com/questions/32508191/uncaught-typeerror-failed-to-execute-readasdataurl-on-filereader-parameter
+ - probeer met een van audiofiles in assets uit of de converter werkt of niet.
+
+ - bouw als het niet werkt gewoon eerst eens dit na: https://www.youtube.com/watch?v=qmr9NCYjueM
+   en daarna pas kijken naar of ik het in een helper-functie wil verpakken of niet
+
