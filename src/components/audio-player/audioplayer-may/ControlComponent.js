@@ -83,6 +83,7 @@ function ControlComponent() {
         const {duration, currentTime} = currentSoundFile;
         const progressPercent = (currentTime / duration) * 100;
 
+    //staat deze hier wel goed? functie-aanroep in de functie?
         currentSoundFile.addEventListener('timeupdate', updateProgress);
         const progress = document.getElementById('progress');
         if(progress !== null) {
@@ -90,6 +91,22 @@ function ControlComponent() {
     }
         }
     updateProgress();
+
+
+    function setProgress(e) {
+        const width = progressContainer.clientWidth;
+        //x is for x-axis:
+        const clickX = e.offsetX;
+        console.log(clickX);
+        const duration = currentSoundFile.duration;
+
+        currentSoundFile.currentTime = (clickX / width) * duration;
+    }
+
+    const progressContainer = document.getElementById('progress-container');
+    if(progressContainer !== null) {
+        progressContainer.addEventListener('click', setProgress);
+    }
 //-------------------------------------------------------------------
 
 
@@ -144,9 +161,12 @@ function ControlComponent() {
             {/*wat raar is: zodra ik song-info in aparte div zette, staat de progress bij aanvang al op 100%*/}
             <div className={styles['song-info']}>
             <span>now playing: track {playingSoundFile && playingSoundFile}</span>
+
+                {/*experimenteer verder door onClick={setProgress} in div progress container te zetten*/}
+                <div className={styles['progress-container']}>
             <div className={styles['progress-bar']} id="progress"/>
             </div>
-
+            </div>
         </div>
 
     );

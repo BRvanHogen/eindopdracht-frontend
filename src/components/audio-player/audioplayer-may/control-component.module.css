@@ -1,6 +1,6 @@
 img {
     background-color: var(--background);
-    /*position: absolute;*/
+    position: absolute;
     z-index: -1;
     width: 50px;
     height: 50px;
@@ -11,18 +11,18 @@ img:hover {
 }
 
 .controls {
+    /*flex version - zet position absolute hierboven aan*/
     display: flex;
-    /*border: 1px solid red;*/
     justify-content: space-evenly;
 }
 
-span {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+/*span {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
     /*border: 1px solid var(--font);*/
     /*border-radius: 20%;*/
-}
+/*}*/
 
 .sound-file {
     width: 50px;
@@ -30,10 +30,18 @@ span {
 }
 
 .song-info {
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .progress-bar {
     height: 2px;
     background-color: blueviolet;
+}
+
+.progress-container {
+    cursor: pointer;
+    height: 4px;
+    width: 100%;
 }
