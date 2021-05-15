@@ -20,6 +20,20 @@ span {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid var(--font);
-    border-radius: 20%;
+    /*border: 1px solid var(--font);*/
+    /*border-radius: 20%;*/
+}
+
+.sound-file {
+    width: 50px;
+    height: 50px;
+}
+
+.song-info {
+
+}
+
+.progress-bar {
+    height: 2px;
+    background-color: blueviolet;
 }
