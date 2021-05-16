@@ -14,9 +14,7 @@ function ControlComponentSandbox() {
     const soundFiles = [{name: 'vampire', data: vampire}, {name: 'groove', data: groove}, {name: 'punk', data: punk}];
     console.log(soundFiles[0].name);
     console.log(soundFiles[0].data);
-    //deze regel zorgt ervoor dat "now playing:" op track 3 blijft staan volgens mij.
-    //misschien moet ik toch met een state gaan werken en die telkens updaten?
-    let soundFilesIndex = soundFiles.length;
+
 
     //initial state met of zonder haken? Let op: voer evt. aanpassingen ook door in prev/next functies
     const [playingSoundFile, setPlayingSoundFile] = useState(soundFiles.length - 1);
@@ -63,12 +61,14 @@ function ControlComponentSandbox() {
         } else {
             currentSoundFile.pause();
         }
+
+
     }, [isPlaying]);
 
 
 //---------WORKING-ON-PROGRESS-BAR-----------------------------------
     function updateProgress() {
-        console.log(currentSoundFile.currentTime);
+        // console.log(currentSoundFile.currentTime);
         const {duration, currentTime} = currentSoundFile;
         const progressPercent = (currentTime / duration) * 100;
 
@@ -102,24 +102,30 @@ function ControlComponentSandbox() {
 
 
     function PrevSoundFile() {
-        if (playingSoundFile === 0) {
-            setPlayingSoundFile(soundFiles.length - 1);
-            console.log(playingSoundFile);
-        } else {
-            setPlayingSoundFile(playingSoundFile - 1);
-            console.log(playingSoundFile);
+        if (isPlaying === true) {
+            currentSoundFile.pause();
         }
+            if (playingSoundFile === 0) {
+                setPlayingSoundFile(soundFiles.length - 1);
+                console.log(playingSoundFile);
+            } else {
+                setPlayingSoundFile(playingSoundFile - 1);
+                console.log(playingSoundFile);
+            }
     }
 
     function NextSoundFile() {
-        if (playingSoundFile === soundFiles.length - 1) {
-            setPlayingSoundFile(0);
-            console.log(playingSoundFile);
-        } else {
-            setPlayingSoundFile(playingSoundFile + 1);
-            console.log(playingSoundFile);
+        if (isPlaying === true) {
+            currentSoundFile.pause();
         }
-    }
+            if (playingSoundFile === soundFiles.length - 1) {
+                setPlayingSoundFile(0);
+                console.log(playingSoundFile);
+            } else {
+                setPlayingSoundFile(playingSoundFile + 1);
+                console.log(playingSoundFile);
+            }
+        }
 
 
     return (
@@ -151,7 +157,7 @@ function ControlComponentSandbox() {
                 <span>now playing: {soundFiles[playingSoundFile] && soundFiles[playingSoundFile].name}</span>
 
                 {/*experimenteer verder door onClick={setProgress} in div progress container te zetten*/}
-                <div className={styles['progress-container']}>
+                <div className={styles['progress-container']} onClick={()=> setProgress}>
                     <div className={styles['progress-bar']} id="progress"/>
                 </div>
                 <p>{currentSoundFile && currentSoundFile.currentTime}</p>
@@ -164,8 +170,25 @@ function ControlComponentSandbox() {
 
 export default ControlComponentSandbox;
 
-
+//BUGS
+//----------------------------------------------------------------------
 //SONG FINISHED: button back to 'play'
 
 // create state: const [songEnded, ToggleSongEnded] = useState(false);
 // if/else
+// zoiets:         else (currentSoundFile.ended) {
+//             setIsPlaying(!=isPlaying);
+//         }
+
+//nog even kijken of dit in useEffect of in PlayPause moet
+//----------------------------------------------------------------------
+
+//ALS USER NIET OP PAUSE SONG DRUKT EN VOLGENDE KLIKT, SPELEN TWEE FILES DOOR ELKAAR
+//oorzaak:
+// bij prev en next buttons wordt niet eerst gecheckt of er al iets speelt. Deze check
+// moet ik inbouwen en als de conditie waar blijkt te zijn, moet currentSoundFile (toch?) gestopt worden
+// IS NU OPGELOST
+// wel moet de user een keer extra op de play knop drukken. Afspelen gaat dus niet automatisch, en wat
+// extra verwarrend is, is dat de knop op pauze blijft staan alsof er nog iets aan het afspelen is.
+// NIEUW PROBLEEM: je kan nu niet op volgende drukken, tenzij er iets afspeelt
+// GEFIXT, eerste-if-statement apart gezet (niet om de rest van de functie heen)
