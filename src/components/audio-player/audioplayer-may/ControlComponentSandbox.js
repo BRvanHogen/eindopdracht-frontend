@@ -11,58 +11,61 @@ import punk from '../../../assets/songs/Test - Punk mp3.mp3';
 
 function ControlComponentSandbox() {
     const [isPlaying, setIsPlaying] = useState(false);
-    const soundFiles = [{name: 'vampire', data: vampire}, {name: 'groove', data: groove}, {name: 'punk', data: punk}];
-    console.log(soundFiles[0].name);
-    console.log(soundFiles[0].data);
-
-
-    //initial state met of zonder haken? Let op: voer evt. aanpassingen ook door in prev/next functies
+    const [songEnded, toggleSongEnded] = useState(false);
+    const [songPaused, toggleSongPaused] = useState(false);
+    const [pausedMark, setPausedMark] = useState(0);
+    const soundFiles = [{name: 'gruwelijk gitaarstukje', data: vampire}, {
+        name: 'groove',
+        data: groove
+    }, {name: 'speed metal', data: punk}];
     const [playingSoundFile, setPlayingSoundFile] = useState(soundFiles.length - 1);
 
-    //let even op het verschil tussen deze twee logs. Zou kunnen dat het ergens met toewijzen src
-    //toch nog fout gaat en daarom niet werkt. Src moet echt gewoon hetzelfde zijn als het object en
-    //geen bewerking hiervan.
     const currentSoundFile = new Audio();
-    console.log(currentSoundFile);
-
     currentSoundFile.src = soundFiles[playingSoundFile].data;
-    console.log(currentSoundFile.src);
 
-    //--------------------------------------------------------
-    const newSoundFile = new Audio();
-
-    function loadSoundFile(soundFile) {
-        //zie log, hier krijgen we gewoon netjes het object
-        console.log(soundFile);
-        newSoundFile.src = soundFile;
-        //maar vervolgens krijgen we hier iets anders (nl. [object%20Object])
-        console.log(newSoundFile.src);
-        newSoundFile.play();
-        // loadSoundFile(soundFiles[playingSoundFile]);
-        // console.log(soundFiles[playingSoundFile]);
-    }
 //----------------------------------------------------------------------------------
 
     function PlayPause() {
         if (isPlaying === false) {
             setIsPlaying(true);
+            toggleSongEnded(false);
             console.log(isPlaying);
         } else {
             console.log('nu is de state', isPlaying);
             setIsPlaying(false);
+            toggleSongEnded(false);
             console.log('nu is de state', isPlaying);
             currentSoundFile.pause();
+            console.log(currentSoundFile.currentTime);
+            toggleSongPaused(true);
+            console.log(songPaused);
+            setPausedMark(currentSoundFile.currentTime);
+            console.log(pausedMark);
         }
     }
 
+    const songFinished = setInterval(() => {
+        if (currentSoundFile.ended === true) {
+            toggleSongEnded(true);
+            console.log('einde');
+            clearInterval(songFinished);
+        }
+    }, 1000);
+
     useEffect(() => {
-        if (isPlaying) {
-            currentSoundFile.play();
+        if(songPaused) {
+            currentSoundFile.currentTime = pausedMark;
         } else {
-            currentSoundFile.pause();
+            currentSoundFile.currentTime = 0;
         }
 
-
+        if (isPlaying) {
+            toggleSongEnded(false);
+            currentSoundFile.play();
+        } else {
+            toggleSongEnded(false);
+            currentSoundFile.pause();
+        }
     }, [isPlaying]);
 
 
@@ -84,13 +87,15 @@ function ControlComponentSandbox() {
 
 
     function setProgress(e) {
+        console.log(e);
         const width = progressContainer.clientWidth;
-        //x is for x-axis:
         const clickX = e.offsetX;
         console.log(clickX);
         const duration = currentSoundFile.duration;
-
-        currentSoundFile.currentTime = (clickX / width) * duration;
+        if (!isFinite(currentSoundFile.currentTime)) {
+            currentSoundFile.currentTime = (clickX / width) * duration;
+            console.log(currentSoundFile.currentTime);
+        }
     }
 
     const progressContainer = document.getElementById('progress-container');
@@ -99,34 +104,39 @@ function ControlComponentSandbox() {
     }
 
 //-------------------------------------------------------------------
-
-
     function PrevSoundFile() {
+        setPausedMark(0);
         if (isPlaying === true) {
             currentSoundFile.pause();
+            setIsPlaying(false);
+            toggleSongEnded(false);
         }
-            if (playingSoundFile === 0) {
-                setPlayingSoundFile(soundFiles.length - 1);
-                console.log(playingSoundFile);
-            } else {
-                setPlayingSoundFile(playingSoundFile - 1);
-                console.log(playingSoundFile);
-            }
+        if (playingSoundFile === 0) {
+            setPlayingSoundFile(soundFiles.length - 1);
+            console.log(playingSoundFile);
+        } else {
+            setPlayingSoundFile(playingSoundFile - 1);
+            console.log(playingSoundFile);
+        }
     }
 
     function NextSoundFile() {
+        setPausedMark(0);
         if (isPlaying === true) {
             currentSoundFile.pause();
+            setIsPlaying(false);
+            toggleSongEnded(false);
         }
-            if (playingSoundFile === soundFiles.length - 1) {
-                setPlayingSoundFile(0);
-                console.log(playingSoundFile);
-            } else {
-                setPlayingSoundFile(playingSoundFile + 1);
-                console.log(playingSoundFile);
-            }
+        if (playingSoundFile === soundFiles.length - 1) {
+            setPlayingSoundFile(0);
+            console.log(playingSoundFile);
+        } else {
+            setPlayingSoundFile(playingSoundFile + 1);
+            console.log(playingSoundFile);
         }
+    }
 
+//-------------------------------------------------------------------------------------
 
     return (
         <div className={styles.controls}>
@@ -142,7 +152,7 @@ function ControlComponentSandbox() {
                 type="button"
                 onClick={PlayPause}
             >
-                {isPlaying ? <img src={pause}/> : <img src={play}/>}
+                {isPlaying && !songEnded ? <img src={pause}/> : <img src={play}/>}
             </button>
 
             <button
@@ -156,8 +166,7 @@ function ControlComponentSandbox() {
             <div className={styles['song-info']}>
                 <span>now playing: {soundFiles[playingSoundFile] && soundFiles[playingSoundFile].name}</span>
 
-                {/*experimenteer verder door onClick={setProgress} in div progress container te zetten*/}
-                <div className={styles['progress-container']} onClick={()=> setProgress}>
+                <div className={styles['progress-container']} id="progress-container">
                     <div className={styles['progress-bar']} id="progress"/>
                 </div>
                 <p>{currentSoundFile && currentSoundFile.currentTime}</p>
@@ -167,28 +176,50 @@ function ControlComponentSandbox() {
     );
 }
 
-
 export default ControlComponentSandbox;
 
 //BUGS
-//----------------------------------------------------------------------
-//SONG FINISHED: button back to 'play'
+//setProgress functie overreact. Geeft te veel meldingen, weet niet waarom. Krijg de positie van nummer wel gelogd,
+//maar het setten van currentTime werkt (nog) niet.
 
-// create state: const [songEnded, ToggleSongEnded] = useState(false);
-// if/else
-// zoiets:         else (currentSoundFile.ended) {
-//             setIsPlaying(!=isPlaying);
-//         }
+//bij pauzeren nummer en daarna weer afspelen, begint 'ie weer opnieuw.
+//misschien door in PlayPause functie iets van:
+// if (isPaused) {currentSoundFile.playFromPausedMark}
 
-//nog even kijken of dit in useEffect of in PlayPause moet
-//----------------------------------------------------------------------
+// even verder denken: proberen of ik na klikken op pause de dan huidige positie kan loggen.
+// Deze waarde moet ik vervolgens hergebruiken ....
+// misschien hier nog wat uithalen: https://stackoverflow.com/questions/13002935/html5-audio-start-over/22837875
 
-//ALS USER NIET OP PAUSE SONG DRUKT EN VOLGENDE KLIKT, SPELEN TWEE FILES DOOR ELKAAR
-//oorzaak:
-// bij prev en next buttons wordt niet eerst gecheckt of er al iets speelt. Deze check
-// moet ik inbouwen en als de conditie waar blijkt te zijn, moet currentSoundFile (toch?) gestopt worden
-// IS NU OPGELOST
-// wel moet de user een keer extra op de play knop drukken. Afspelen gaat dus niet automatisch, en wat
-// extra verwarrend is, is dat de knop op pauze blijft staan alsof er nog iets aan het afspelen is.
-// NIEUW PROBLEEM: je kan nu niet op volgende drukken, tenzij er iets afspeelt
-// GEFIXT, eerste-if-statement apart gezet (niet om de rest van de functie heen)
+// if(audioSupport.duration > 0 && !audioSupport.paused){
+//
+//     //already playing
+//     audioSupport.pause();
+//     audioSupport.currentTime = 0;
+//     audioSupport.play();
+//
+// }else{
+//
+//     //not playing
+//
+//     audioSupport.play();
+//
+// }
+
+
+// zoiets? Het probleem is wel dat ik pausedMark midden in de PlayPause functie aanmaak en daarom niet naar
+// de useEffect kan halen. Of ik moet ook hier weer een lege state voor aanmaken:
+// const [pausedMark, setPausedMark] = useState (0);
+
+// if(songIsPaused) {
+//     currentSoundFile.currentTime = pausedMark;
+// } else {
+//     currentSoundFile.currentTime = 0;
+// }
+
+// oke, dat werkt nu. Nieuw probleem: hij slaat de tijdsmarkeringen op, ook als je prev/next song doet.
+// bij iedere prev/next navigatie moet pausedMark weer op 0 worden gezet.
+//OPGELOST, setPausedMark(0) bovenaan de functie (dus voor if/else blok) zodat deze sowieso op 0 wordt
+//gezet als er op de prev/next knoppen wordt geklikt
+
+
+

@@ -41,7 +41,7 @@ img:hover {
 }
 
 .progress-container {
-    cursor: pointer;
+    cursor: grabbing;
     height: 4px;
     width: 100%;
     background-color: pink;
