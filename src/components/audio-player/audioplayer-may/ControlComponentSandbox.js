@@ -4,16 +4,19 @@ import previous from '../../../assets/pics/audioplayer/previous.png';
 import next from '../../../assets/pics/audioplayer/next.png';
 import pause from '../../../assets/pics/audioplayer/pause.png';
 import play from '../../../assets/pics/audioplayer/play.png';
+import replay from '../../../assets/pics/audioplayer/replay.png';
 import styles from './control-component.module.css';
 import vampire from '../../../assets/songs/Akrasial - Vampire 144.mp3';
 import groove from '../../../assets/songs/Test - Groove Gm 133.mp3';
 import punk from '../../../assets/songs/Test - Punk mp3.mp3';
+
 
 function ControlComponentSandbox() {
     const [isPlaying, setIsPlaying] = useState(false);
     const [songEnded, toggleSongEnded] = useState(false);
     const [songPaused, toggleSongPaused] = useState(false);
     const [pausedMark, setPausedMark] = useState(0);
+    const [playingTime, setPlayingTime] = useState(0);
     const soundFiles = [{name: 'gruwelijk gitaarstukje', data: vampire}, {
         name: 'groove',
         data: groove
@@ -24,7 +27,6 @@ function ControlComponentSandbox() {
     currentSoundFile.src = soundFiles[playingSoundFile].data;
 
 //----------------------------------------------------------------------------------
-
     function PlayPause() {
         if (isPlaying === false) {
             setIsPlaying(true);
@@ -71,9 +73,15 @@ function ControlComponentSandbox() {
 
 //---------WORKING-ON-PROGRESS-BAR-----------------------------------
     function updateProgress() {
-        // console.log(currentSoundFile.currentTime);
         const {duration, currentTime} = currentSoundFile;
         const progressPercent = (currentTime / duration) * 100;
+
+        // const songTimer = setInterval(()=> {
+        // if(currentTime !== 0) {
+        //     setPlayingTime(currentTime);
+        // }}, 500);
+        //
+        // clearInterval();
 
         //staat deze hier wel goed? functie-aanroep in de functie?
         currentSoundFile.addEventListener('timeupdate', updateProgress);
@@ -136,6 +144,13 @@ function ControlComponentSandbox() {
         }
     }
 
+    function ReplaySoundFile() {
+        setPausedMark(0);
+        setIsPlaying(true);
+        currentSoundFile.currentTime = 0;
+        currentSoundFile.play();
+    }
+
 //-------------------------------------------------------------------------------------
 
     return (
@@ -155,12 +170,34 @@ function ControlComponentSandbox() {
                 {isPlaying && !songEnded ? <img src={pause}/> : <img src={play}/>}
             </button>
 
+            {isPlaying ? (
+                <button
+                    type="button"
+                    onClick={ReplaySoundFile}
+                >
+                    <img
+                        src={replay}
+                    />
+                </button>) : (
+                <button
+                    type="button"
+                    className={styles['disabled-button']}
+                    disabled={true}
+                >
+                    <img
+                        src={replay}
+                    />
+                </button>
+            )
+            }
+
             <button
                 type="button"
                 onClick={NextSoundFile}
             >
                 <img src={next}/>
             </button>
+
 
             {/*wat raar is: zodra ik song-info in aparte div zette, staat de progress bij aanvang al op 100%*/}
             <div className={styles['song-info']}>
@@ -169,7 +206,7 @@ function ControlComponentSandbox() {
                 <div className={styles['progress-container']} id="progress-container">
                     <div className={styles['progress-bar']} id="progress"/>
                 </div>
-                <p>{currentSoundFile && currentSoundFile.currentTime}</p>
+                <p>{playingTime && playingTime}</p>
             </div>
         </div>
 
@@ -222,4 +259,17 @@ export default ControlComponentSandbox;
 //gezet als er op de prev/next knoppen wordt geklikt
 
 
+//Playing Time weergeven:
+// moet ook weer met state/
+// const [playingTime, SetPlayingTime] = useState(0);
+//SetPlayingTime in de functie updateProgress
+// playingTime als p-element in return blok
+//is gelukt om het weer te geven. Zie uitgecommente deel in functie updateProgress. Probleem is dat hierdoor
+//de playPause functie niet meer naar behoren werkte.
+// straks/later weer even naar kijken.
 
+// nog toevoegen: knoppen om nummer opnieuw te laten beginnen.
+// deze knoppen moeten de currentSoundFile.currentTime op 0 zetten.
+// deze functie werkt nu, maar alleen de eerste keer. Het gaat dus zo:
+// play > replay > pause = so far so good. Dan:
+// play > replay > pause = pause werkt niet!

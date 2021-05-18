@@ -16,6 +16,10 @@ img:hover {
     justify-content: space-evenly;
 }
 
+.controls .disabled-button img {
+    cursor: not-allowed;
+}
+
 /*span {*/
 /*    display: flex;*/
 /*    flex-direction: column;*/
