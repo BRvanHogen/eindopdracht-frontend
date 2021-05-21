@@ -23,13 +23,13 @@ function UploadFile() {
 
 
     async function onButtonClick(formData) {
-        CircularJSON.stringify(file);
+        // CircularJSON.stringify(file);
         // const formData = new FormData();
         // formData.append('myFile', file, file.name);
 
         try {
 
-            const response = await axios.post('https://localhost:8444/upload-file', {
+            const response = await axios.post('https://localhost:8444/upload', {
                 formData
             });
 
@@ -43,7 +43,7 @@ function UploadFile() {
 
         return (
             <>
-                {/*<form onSubmit={handleSubmit(onButtonClick)}>*/}
+                <form encType="multipart/form-data" onSubmit={handleSubmit(onButtonClick)}>
                 {/*    <input*/}
                 {/*    type="text"*/}
                 {/*    disabled={true}*/}
@@ -53,6 +53,8 @@ function UploadFile() {
 
                     <input
                     type="file"
+                    name="file"
+                    id="file"
                     onChange={onFileChange}
                     {...register('file')}
                     />
@@ -62,10 +64,7 @@ function UploadFile() {
                         text="upload file"
                         onClick={onButtonClick}
                     />
-                <p>{file && file.name}</p>
-                <p>{file && file.size + ' bytes'}</p>
-                <p>{file && 'type: ' + file.type}</p>
-                {/*</form>*/}
+                </form>
             </>
         );
     }

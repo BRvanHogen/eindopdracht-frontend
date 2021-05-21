@@ -1,0 +1,11 @@
+.header-container {
+    background-color: #BFBEBD;
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+}
+
+.profile-pic {
+    width: 10em;
+    height: 10em;
+}

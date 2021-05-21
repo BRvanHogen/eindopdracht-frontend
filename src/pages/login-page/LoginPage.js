@@ -75,7 +75,7 @@ function LoginPage() {
                             name="password"
                             id="password"
                             aria-invalid={errors.password ? "true" : "false"}
-                            {...register('password', {required: true})}
+                             {...register('password', {required: true})}
                         />
                         <i onClick={togglePasswordVisibility}>{passwordShown ? <p>🙊</p> : <p>🙈</p>}</i>
 

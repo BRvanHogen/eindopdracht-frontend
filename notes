@@ -108,3 +108,8 @@ In uploadFile: // 6 mei:
  - bouw als het niet werkt gewoon eerst eens dit na: https://www.youtube.com/watch?v=qmr9NCYjueM
    en daarna pas kijken naar of ik het in een helper-functie wil verpakken of niet
 
+Notities 21 mei
+- bezig met styling van dashboard page (zie in map 'profile')
+- de afbeelding overerft properties van img in control-component css file. Zet dit uit. Lees nog even goed na
+  hoe het precies zit met module en styles. Zo is het bijvoorbeeld ook zo dat alle pagina's de achtergrond van
+  login-page nu overerven

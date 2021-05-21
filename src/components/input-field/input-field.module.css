@@ -15,8 +15,9 @@
     font-family: inherit;
     padding: 0.25em 0.5em;
     background-color: #fff;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
-    border: 2px solid var(--input-border);
+    opacity: 0.8;
+    box-shadow: 0 3px 3px rgba(20, 20, 20, 0.18);
+    border: 1px solid var(--input-border);
     border-radius: 4px;
     transition: 180ms box-shadow ease-in-out;
 
@@ -30,5 +31,5 @@
 
 .input-field:focus {
     outline-style: none;
-    box-shadow: 0 0 0 3px var(--input-border);
+    box-shadow: 0 0 0 2px var(--input-border);
 }

@@ -13,6 +13,7 @@ import TimeFormatter from "../helpers/TimeFormatter";
 import {ProjectContext} from "../context/ProjectContext";
 import AudioPlayerScratch from "../components/audio-player/AudioPlayerScratch";
 
+
 function BandDashboard({title, children}) {
     const [comments, setComments] = useState([]);
     const { ...projectState } = useContext(ProjectContext);
@@ -38,7 +39,7 @@ function BandDashboard({title, children}) {
 
 
     return (
-        <>
+        <div className={styles.main}>
             <p>klik <Link to="/projects">hier</Link> voor de projectportal</p>
             <Link to="/">uitloggen</Link>
 
@@ -72,7 +73,7 @@ function BandDashboard({title, children}) {
                 <UploadFile/>
                 {/*<AudioPlayerScratch/>*/}
             </div>
-        </>
+        </div>
     )
 }
 

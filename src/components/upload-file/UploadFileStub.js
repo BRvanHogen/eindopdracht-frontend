@@ -39,7 +39,7 @@ function UploadFileStub() {
         // hieronder probeer ik er een multipart file van te maken:
         const data = new FormData();
         // data.append('newFile', base64FileToUpload);
-        const jsonStringify = stringify(base64FileToUpload);
+        const jsonStringify = JSON.stringify(base64FileToUpload);
         data.append('newFile', jsonStringify);
 
         try {
