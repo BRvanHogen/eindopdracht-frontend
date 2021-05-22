@@ -30,12 +30,14 @@ function Dashboard() {
                 text="log out"
             />
             </div>
+            <div className={styles['content-wrapper']}>
             <div className={styles['activity-container']}>
                 <p>Recent activity</p>
             </div>
 
-            <div>
-
+            <div className={styles['user-details']}>
+                <p>user details</p>
+            </div>
             </div>
         </>
 

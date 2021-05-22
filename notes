@@ -113,3 +113,7 @@ Notities 21 mei
 - de afbeelding overerft properties van img in control-component css file. Zet dit uit. Lees nog even goed na
   hoe het precies zit met module en styles. Zo is het bijvoorbeeld ook zo dat alle pagina's de achtergrond van
   login-page nu overerven
+
+  Notities 22 mei
+- css gedoe opgelost, zie notitie in mapje eindopdracht. Meenemen in eindverantwoording
+- er moet een check komen op de confirm password (sign up). Als deze niet gelijk zijn, dan geen registratie

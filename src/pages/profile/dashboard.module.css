@@ -1,11 +1,30 @@
 .header-container {
-    background-color: #BFBEBD;
+    background-color: var(--fields);
     padding: 5px;
     margin: 5px;
-    display: flex;
+    /*display: flex;*/
 }
 
 .profile-pic {
-    width: 10em;
-    height: 10em;
+    width: 5em;
+    height: 5em;
+    border-radius: 50%;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.activity-container {
+    background-color: var(--fields);
+    padding: 5px;
+    margin: 5px;
+}
+
+.user-details {
+    background-color: var(--fields);
+    padding: 5px;
+    margin: 5px;
+    align-self: flex-end;
 }

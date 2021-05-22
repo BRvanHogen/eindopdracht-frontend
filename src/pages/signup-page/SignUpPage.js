@@ -46,107 +46,110 @@ function SignUpPage() {
     };
 
     return (
-        <div className={styles.container}>
-            <form className={styles['signup-form']} onSubmit={handleSubmit(onFormSubmit)}>
-                <fieldset>
-                    <legend>Sign up</legend>
-                    <label htmlFor="username">
-                        username:
-                        <input
-                            type="text"
-                            name="username"
-                            id="username"
-                            aria-invalid={errors.username ? "true" : "false"}
-                            {...register('username', {required: true})}
-                        />
-                        {errors.username && (
-                            <span role="alert">
+        <div className={styles.background}>
+            <div className={styles.container}>
+                <h1 className={styles.title}>GarageLab</h1>
+                <form className={styles['signup-form']} onSubmit={handleSubmit(onFormSubmit)}>
+                    <fieldset className={styles.fieldset}>
+                        {/*<legend>Sign up</legend>*/}
+                        <label htmlFor="username">
+                            <input
+                                className={styles.input}
+                                type="text"
+                                name="username"
+                                id="username"
+                                placeholder="username"
+                                aria-invalid={errors.username ? "true" : "false"}
+                                {...register('username', {required: true})}
+                            />
+                            {errors.username && (
+                                <span role="alert">
                     username is required
                 </span>
-                        )}
-                    </label>
+                            )}
+                        </label>
 
-                    <label htmlFor="password">
-                        password:
-                        <input
-                            type={passwordShown ? "text" : "password"}
-                            name="password"
-                            id="password"
-                            aria-invalid={errors.password ? "true" : "false"}
-                            {...register('password', {required: true})}
-                        />
-                        <i onClick={togglePasswordVisibility}>{passwordShown ? <p>🙊</p> : <p>🙈</p>}</i>
+                        <label htmlFor="password">
+                            <input
+                                className={styles.input}
+                                type={passwordShown ? "text" : "password"}
+                                name="password"
+                                id="password"
+                                placeholder="password"
+                                aria-invalid={errors.password ? "true" : "false"}
+                                {...register('password', {required: true})}
+                            />
+                            <i className={styles['toggle-password']} onClick={togglePasswordVisibility}>{passwordShown ? <p>🙊</p> : <p>🙈</p>}</i>
 
-                        {errors.password && (
-                            <span role="alert">
+                            {errors.password && (
+                                <span role="alert">
                password is required
             </span>
-                        )}
-                    </label>
+                            )}
+                        </label>
 
 
-                    <label htmlFor="email">
-                        email:
-                        <input
-                            type="text"
-                            name="email"
-                            id="email"
-                            // aria-invalid={errors.email ? "true" : "false"}
-                            {...register('email',
-                                {
-                                    required: true,
-                                    validate: (value) => value.includes('@'),
-                                })}
-                        />
-                        {errors.email && (
-                            <span role="alert">
+                        <label htmlFor="email">
+                            <input
+                                className={styles.input}
+                                type="text"
+                                name="email"
+                                id="email"
+                                placeholder="email"
+                                // aria-invalid={errors.email ? "true" : "false"}
+                                {...register('email',
+                                    {
+                                        required: true,
+                                        validate: (value) => value.includes('@'),
+                                    })}
+                            />
+                            {errors.email && (
+                                <span role="alert">
                         valid email is required {errors.email.message}
                     </span>
-                        )}
-                    </label>
-
-
-                    <label>
-                        register account
-                        <input
-                            type="checkbox"
-                            name="enabled"
-                            id="enabled"
-                            {...register(
-                                'enabled',
-                                {required: true}
                             )}
-                        />
-                        {errors.enabled && (
-                            <span role="alert">
+                        </label>
+
+
+                        <label>
+                            register account
+                            <input
+                                type="checkbox"
+                                name="enabled"
+                                id="enabled"
+                                {...register(
+                                    'enabled',
+                                    {required: true}
+                                )}
+                            />
+                            {errors.enabled && (
+                                <span role="alert">
                     please check the box
                 </span>
-                        )}
-                    </label>
+                            )}
+                        </label>
 
-                    <Button
-                        type="submit"
-                        text="Go!"
-                    />
+                        <Button
+                            type="submit"
+                            text="Go!"
+                        />
 
-                    {signUpSuccess === true &&
-                    <p>sign up successful. Profile page loading...</p>
-                    }
-                </fieldset>
-            </form>
-            <motion.div
-                className="block"
-                onClick={() => setIsActive(!isActive)}
-                animate={{
-                    rotate: isActive ? 180 : 360
-                }}
-            >
-                Sign up or login!
-            </motion.div>
-            <Triangle/>
+                        {signUpSuccess === true &&
+                        <p>sign up successful. Profile page loading...</p>
+                        }
+                    </fieldset>
+                </form>
+                <motion.div
+                    className="block"
+                    onClick={() => setIsActive(!isActive)}
+                    animate={{
+                        rotate: isActive ? 180 : 360
+                    }}
+                >
+                    <h3 className={styles['signup-cue']}>Sign up below...</h3>
+                </motion.div>
+            </div>
         </div>
-
-
     );
 }
 

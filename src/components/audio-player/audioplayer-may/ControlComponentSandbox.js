@@ -160,14 +160,16 @@ function ControlComponentSandbox() {
                 type="button"
                 onClick={PrevSoundFile}
             >
-                <img src={previous}/>
+                <img
+                    className={styles.image}
+                    src={previous}/>
             </button>
 
             <button
                 type="button"
                 onClick={PlayPause}
             >
-                {isPlaying && !songEnded ? <img src={pause}/> : <img src={play}/>}
+                {isPlaying && !songEnded ? <img className={styles.image} src={pause}/> : <img className={styles.image} src={play}/>}
             </button>
 
             {isPlaying ? (
@@ -176,6 +178,7 @@ function ControlComponentSandbox() {
                     onClick={ReplaySoundFile}
                 >
                     <img
+                        className={styles.image}
                         src={replay}
                     />
                 </button>) : (
@@ -185,6 +188,7 @@ function ControlComponentSandbox() {
                     disabled={true}
                 >
                     <img
+                        className={styles['image-disabled']}
                         src={replay}
                     />
                 </button>
@@ -195,7 +199,9 @@ function ControlComponentSandbox() {
                 type="button"
                 onClick={NextSoundFile}
             >
-                <img src={next}/>
+                <img
+                    className={styles.image}
+                    src={next}/>
             </button>
 
 

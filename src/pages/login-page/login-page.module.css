@@ -1,9 +1,11 @@
 @import '../../assets/fonts/fonts.css';
 
-.login-form {
-    margin: 0;
-    padding: 0;
-    font-family: inherit;
+
+.background {
+    background-image: url("../../assets/pics/background/john-matychuk-gUK3lA3K7Yo-unsplash.jpg");
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
 }
 
 .container {
@@ -11,36 +13,99 @@
     justify-content: center;
 }
 
-fieldset {
+.title {
+    color: #707070;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.5em;
+    position: absolute;
+    z-index: 1;
+}
+
+.login-form {
+    /*margin: 0;*/
+    padding: 0;
+    font-family: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    margin-top: 5em;
+}
+
+.fieldset {
     margin: 2em 0;
     padding: 1em 2em;
-    border: solid 1px var(--font);
-    border-radius: 6px;
+    border: solid 1px hotpink;
+    background-color: #BFBEBD;
+    opacity: 0.8;
+    border-radius: 12px;
     min-width: 200px;
 }
 
-legend {
-    font-size: 1.25em;
-    padding: 0 .25em;
-    color: var(--font);
+/*.legend {*/
+/*    font-size: 1.25em;*/
+/*    padding: 0 .25em;*/
+/*    color: var(--font);*/
+/*}*/
+
+.input {
+    display: flex;
+    margin: 1em;
+    padding: 0.25em 0.5em;
+    box-shadow: 0 3px 3px rgba(20, 20, 20, 0.18);
+    border: 1px solid var(--input-border);
+    border-radius: 3px;
 }
 
-label {
-    display: block;
-    margin-top: 1em;
+
+.input:focus {
+    outline-style: none;
+    box-shadow: 0 0 0 2px var(--input-border);
 }
 
-label:first-of-type {
-    margin-top: 0;
+
+.input::placeholder {
+    color: var(--pink);
+    font-style: italic;
+    opacity: 0.3;
 }
 
-i {
+
+.login-message {
+    font-size: 67%;
+    color: var(--font-gray);
+    margin: 0.8em;
+}
+
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+
+.button {
+    display: flex;
+    align-self: center;
+}
+
+/*label {*/
+/*    display: block;*/
+/*    margin-top: 1em;*/
+/*}*/
+
+/*label:first-of-type {*/
+/*    margin-top: 0;*/
+/*}*/
+
+.toggle-password {
     display: inline-block;
+    cursor: pointer;
+    margin-left: 1em;
 }
 
-i:hover {
-    cursor: pointer;
-}
 
 @keyframes pacman {
     0% {
@@ -53,6 +118,7 @@ i:hover {
         justify-content: flex-end;
     }
 }
+
 
 .pacman-container {
     display: flex;

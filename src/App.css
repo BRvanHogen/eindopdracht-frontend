@@ -3,12 +3,16 @@
 :root {
     --background: hsl(250, 40%, 14%);
     /*--font: hsl(250, 70%, 59%);*/
-    --font: hsl(250, 40%, 64%);
+    --font: hsl(340, 84%, 50%);
+    --font-gray: hsl(30, 2%, 26%);
+    --fields: hsl(30, 2%, 75%);
+    --fields-hover: hsl(30, 2%, 50%);
+    --pink: hsl(340, 84%, 50%);
+    --less-pink: hsl(340, 84%, 60%);
 }
 
 body {
     font-family: 'Core Sans G', Arial, sans-serif;
-    background-color: var(--background);
     color: var(--font);
 }
 

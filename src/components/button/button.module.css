@@ -10,9 +10,10 @@
     align-items: center;
     justify-content: center;
 
-    background-color: var(--font);
+    background-color: var(--fields);
     color: #fff;
     border-radius: 6px;
+    border: var(--pink);
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
 
     padding: 0.25em 0.75em;
@@ -26,11 +27,11 @@
 }
 
 .button:hover {
-    background-color: hsl(250, 40%, 50%);
+    background-color: var(--fields-hover);
 }
 
 .button:focus {
     outline-style: solid;
     outline-color: transparent;
-    box-shadow: 0 0 0 4px hsl(250, 40%, 40%);
+    box-shadow: 0 0 0 4px var(--pink);
 }
