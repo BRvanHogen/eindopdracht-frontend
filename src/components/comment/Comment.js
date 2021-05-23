@@ -1,15 +1,16 @@
-import React, { useState, useContext } from 'react';
+import React, {useState, useContext} from 'react';
 import {useForm} from 'react-hook-form';
 import axios from 'axios';
 import {AuthContext} from "../../context/AuthContext";
 import styles from './comment-form.module.css';
 import {ProjectContext} from "../../context/ProjectContext";
+import Button from "../button/Button";
 
 function Comment() {
     const [comment, SetComment] = useState("");
     const {handleSubmit, register, formState: {errors}} = useForm();
-    const { user } = useContext(AuthContext);
-    const { project } = useContext(ProjectContext);
+    const {user} = useContext(AuthContext);
+    const {project} = useContext(ProjectContext);
     //onderstaande werkt wel in de console, niet in het doorgeven naar post-request
     // const projectName = localStorage.getItem('name');
     // console.log(projectName);
@@ -39,15 +40,18 @@ function Comment() {
 
     return (
         <>
-            <form className={styles['comment-form']} onSubmit={handleSubmit(postComment)}>
+            <form
+                className={styles['comment-form']}
+                onSubmit={handleSubmit(postComment)}>
         <textarea
+            className={styles['text-area']}
+            placeholder="add a comment ..."
             {...register('comment', {required: true})}
         />
-            <button
-            type="submit"
-            >
-                post
-            </button>
+                <Button
+                    type="submit"
+                    text="post"
+                />
             </form>
         </>
     );

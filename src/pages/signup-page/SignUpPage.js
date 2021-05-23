@@ -3,7 +3,7 @@ import {useForm} from 'react-hook-form';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import styles from './signup-page.module.css';
 import axios from 'axios';
-import {useHistory} from 'react-router-dom';
+import {NavLink, useHistory} from 'react-router-dom';
 import Button from "../../components/button/Button";
 import {Spring} from 'react-spring';
 import {motion} from "framer-motion";
@@ -133,9 +133,18 @@ function SignUpPage() {
                             type="submit"
                             text="Go!"
                         />
+                        {signUpSuccess ?
+                            <p className={styles['hide-message']}></p>
+                        :
+                            <p
+                                className={styles['signup-message']}
+                            >
+                                Already a user? Log in <NavLink to="sign-in">here</NavLink>
+                            </p>
+                        }
 
                         {signUpSuccess === true &&
-                        <p>sign up successful. Profile page loading...</p>
+                        <p className={styles['signup-message']}>sign up successful. Profile page loading...</p>
                         }
                     </fieldset>
                 </form>

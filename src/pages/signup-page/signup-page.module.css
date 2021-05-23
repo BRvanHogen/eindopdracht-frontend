@@ -86,3 +86,13 @@
     opacity: 0.8;
     cursor: crosshair;
 }
+
+.signup-message {
+    font-size: 67%;
+    color: var(--font-gray);
+    margin: 0.8em;
+}
+
+.hide-message {
+    display: none;
+}

@@ -1,0 +1,21 @@
+.comment-form {
+    padding: 0.25em 0.5em;
+}
+
+.text-area {
+    font-size: 16px;
+    font-family: inherit;
+    padding: 0.25em 0.5em;
+    opacity: 0.8;
+    box-shadow: 0 3px 3px rgba(20, 20, 20, 0.18);
+    border: 1px solid var(--input-border);
+    border-radius: 4px;
+    transition: 180ms box-shadow ease-in-out;
+    min-width: 20em;
+}
+
+.text-area::placeholder {
+    color: var(--less-pink);
+    font-style: italic;
+    opacity: 0.6;
+}

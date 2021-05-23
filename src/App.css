@@ -1,7 +1,7 @@
 @import './assets/fonts/fonts.css';
 
 :root {
-    --background: hsl(250, 40%, 14%);
+    /*--background: hsl(250, 40%, 14%);*/
     /*--font: hsl(250, 70%, 59%);*/
     --font: hsl(340, 84%, 50%);
     --font-gray: hsl(30, 2%, 26%);

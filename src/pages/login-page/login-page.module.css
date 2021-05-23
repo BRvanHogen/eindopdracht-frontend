@@ -91,6 +91,10 @@
     align-self: center;
 }
 
+.hide-message {
+    display: none;
+}
+
 /*label {*/
 /*    display: block;*/
 /*    margin-top: 1em;*/

@@ -85,11 +85,14 @@ function LoginPage() {
                             {passwordShown ? <p>🙊</p> : <p>🙈</p>}
                         </i>
 
+                        {loginSuccess ?
+                            <p className={styles['hide-message']}></p> :
                         <p
                             className={styles['login-message']}
                         >
                             Please login. Not a user? Sign up <NavLink to="sign-up">here</NavLink>
                         </p>
+                        }
 
                         {errors.password && (
                             <span role="alert">
@@ -107,7 +110,7 @@ function LoginPage() {
                     </label>
                     </div>
 
-                    {loginSuccess === true && <p>login successful. Profile page loading</p>}
+                    {loginSuccess === true && <p className={styles['login-message']}>login successful. Profile page loading</p>}
                 </fieldset>
             </form>
         </div>
