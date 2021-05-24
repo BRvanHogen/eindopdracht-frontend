@@ -1,5 +1,10 @@
 @import './assets/fonts/fonts.css';
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 :root {
     /*--background: hsl(250, 40%, 14%);*/
     /*--font: hsl(250, 70%, 59%);*/

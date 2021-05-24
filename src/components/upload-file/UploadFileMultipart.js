@@ -22,11 +22,9 @@ function UploadFileMultipart() {
         console.log('test');
         console.log('formdata hier:', formData);
         // let formDataToPost = {content: formData}
-        const response = await axios.post('https://localhost:8444/upload',
-            {
-                formData,
+        const response = await axios.post('https://localhost:8444/upload', formData,
+            {headers: {"Content-Type": "multipart/form-data"}});
                 // {headers: {"Content-Type": "multipart/form-data",}}
-            })
     }
 
     return (

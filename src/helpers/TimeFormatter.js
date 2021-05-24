@@ -1,9 +1,8 @@
 import React from 'react';
-import moment from "moment";
 
-function TimeFormatter(time) {
-    moment(time).format("MMM Do YY");
-    return time;
+function TimeFormatter(time)  {
+    const options = { year: "numeric", month: "long", day: "numeric" }
+    return new Date(time).toLocaleDateString('en-US', options)
 }
 
 export default TimeFormatter;

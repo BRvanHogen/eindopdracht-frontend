@@ -1,10 +1,10 @@
 import React, {useState, useContext} from 'react';
+import styles from './new-project.module.css';
 import axios from 'axios';
 import Button from "../button/Button";
-import { useForm } from "react-hook-form";
-import { useHistory } from 'react-router-dom';
+import {useForm} from "react-hook-form";
+import {useHistory} from 'react-router-dom';
 import {ProjectContext} from "../../context/ProjectContext";
-
 
 
 function NewProject() {
@@ -38,42 +38,44 @@ function NewProject() {
 
     return (
         <form onSubmit={handleSubmit(startNewProject)}>
-        <fieldset>
-            <legend>create new project</legend>
-            <label htmlFor="name">
-        <input
-        type="text"
-        name="name"
-        id="name"
-        placeholder="project name"
-        {...register('name')}
-        />
-            </label>
+            <fieldset>
+                {/*<legend>create new project</legend>*/}
+                <label htmlFor="name">
+                    <input
+                        className={styles.input}
+                        type="text"
+                        name="name"
+                        id="name"
+                        placeholder="project name"
+                        {...register('name')}
+                    />
+                </label>
 
-            <label htmlFor="working-title">
-                <input
-                    type="text"
-                    name="working-title"
-                    id="working-title"
-                    placeholder="working title"
-                    {...register('working-title')}
-                />
-            </label>
+                <label htmlFor="working-title">
+                    <input
+                        className={styles.input}
+                        type="text"
+                        name="working-title"
+                        id="working-title"
+                        placeholder="working title"
+                        {...register('working-title')}
+                    />
+                </label>
 
-            {/*<input*/}
-            {/*type="text"*/}
-            {/*disabled={true}*/}
-            {/*placeholder="id = auto-assign"*/}
-            {/*{...register('id')}*/}
-            {/*/>*/}
+                {/*<input*/}
+                {/*type="text"*/}
+                {/*disabled={true}*/}
+                {/*placeholder="id = auto-assign"*/}
+                {/*{...register('id')}*/}
+                {/*/>*/}
 
-            <label>
-                <Button
-                type="Submit"
-                text="Create!"
-                />
-            </label>
-        </fieldset>
+                <label>
+                    <Button
+                        type="Submit"
+                        text="Create!"
+                    />
+                </label>
+            </fieldset>
             {projectCreated === true &&
             <p>project created. You will be redirected to project page</p>}
         </form>

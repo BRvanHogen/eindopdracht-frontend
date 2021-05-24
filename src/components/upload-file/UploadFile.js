@@ -17,7 +17,8 @@ function UploadFile() {
 
     const onFileUpload = () => {
         const formData = new FormData();
-        formData.append('myFile', file, file.name);
+        formData.append('myFile', file);
+    // , file.name
     }
     // console.log(file);
 
@@ -28,11 +29,12 @@ function UploadFile() {
         // formData.append('myFile', file, file.name);
 
         try {
-
-            const response = await axios.post('https://localhost:8444/upload', {
-                formData
-            });
-
+            const response = await axios.post('https://localhost:8444/upload', formData,
+                {
+                    headers: {
+                        "Content-Type": "multipart/form-data",
+                    }
+                });
             setMessage('successfully uploaded file');
 
         } catch (e) {

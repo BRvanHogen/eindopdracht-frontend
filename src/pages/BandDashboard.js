@@ -4,26 +4,28 @@ import styles from '../stylesheets/band-dashboard.module.css';
 import SongDetails from "../components/SongDetails";
 import ProjectsFetcher from "../components/ProjectsFetcher";
 import Comment from "../components/comment/Comment";
-import UploadFile from "../components/upload-file/UploadFile";
 import Sidebar from "../components/sidebar/Sidebar";
 import axios from 'axios';
 import GetComment from "../components/comment/GetComment";
 import Button from "../components/button/Button";
 import TimeFormatter from "../helpers/TimeFormatter";
 import {ProjectContext} from "../context/ProjectContext";
-import AudioPlayerScratch from "../components/audio-player/AudioPlayerScratch";
 import {AuthContext} from "../context/AuthContext";
 import ControlComponentSandbox from "../components/audio-player/audioplayer-may/ControlComponentSandbox";
+import UploadFileMultipart from "../components/upload-file/UploadFileMultipart";
 
 
 function BandDashboard({title, children}) {
     const [comments, setComments] = useState([]);
+    const [files, setFiles] = useState([]);
+
     const {...projectState} = useContext(ProjectContext);
     console.log(projectState);
     const {user} = useContext(AuthContext);
     const projectName = (localStorage.getItem('name'));
     console.log(projectName);
 
+    //--------------COMMENTS--------------------------------------------
     async function FetchComments() {
         try {
             const response = await axios.get('https://localhost:8444/comments')
@@ -33,11 +35,22 @@ function BandDashboard({title, children}) {
         } catch (e) {
             console.error(e);
         }
-        // useEffect(()=>{
-        //     FetchComments();
-        // },[])
     }
+//--------------------FILES-------------------------------------------
+    async function FetchFiles() {
+        try {
+            const response = await axios.get('https://localhost:8444/files', {headers: {
+                    "Content-Type": "application/json",
+                }});
 
+            console.log(response.data);
+            setFiles(response.data);
+
+        } catch (e) {
+            console.error(e);
+        }
+    }
+  //-------------------------------------------------------------------------
 
     return (
         <div className={styles.main}>
@@ -51,7 +64,7 @@ function BandDashboard({title, children}) {
 
             <div className={styles['bottom-content']}>
 
-                <div className={styles['comment-wrapper']}>
+                <div className={styles['comment-section-wrapper']}>
                     <div className={styles['comment-action-wrapper']}>
                         <p className={styles['username-post']}>{user && user.username}</p>
                         <Comment className={styles['text-area']}/>
@@ -62,8 +75,20 @@ function BandDashboard({title, children}) {
                         {comments.map((comment) => {
                             return (
                                 <ul>
-                                    <p>{TimeFormatter(comment.timestamp)}</p>
+                                    <div className={styles['single-comment-wrapper']}>
+                                        <div className={styles['comment-user-info']}>
+                                    <p>{comment.byUser}</p>
+                                        </div>
+
+                                        <div className={styles['comment-content']}>
                                     <p>{comment.textareaInput}</p>
+                                        </div>
+
+                                        <div className={styles['comment-timestamp']}>
+                                            <p>{TimeFormatter(comment.timestamp)}</p>
+                                        </div>
+
+                                    </div>
                                 </ul>
                             )
                         })}
@@ -77,14 +102,32 @@ function BandDashboard({title, children}) {
                     </div>
                 </div>
 
-                <div className={styles['upload-wrapper']}>
-                    {/*<SongDetails*/}
-                    {/*    songLength={'03:34'}*/}
-                    {/*    contributors={'Bob'}*/}
-                    {/*    lastContributionBy={'Bob'}*/}
-                    {/*    lastContributionLength={'00:45'}*/}
-                    {/*/>*/}
-                    <UploadFile/>
+                <div className={styles['upload-section-wrapper']}>
+
+                    <div className={styles['upload-action-wrapper']}>
+                        <p className={styles['username-post']}>{user && user.username}</p>
+                        <UploadFileMultipart/>
+                    </div>
+
+                    <div className={styles['uploads-display']}>
+                        {files.map((file)=> {
+                            return (
+                                <ul>
+                                <div className={styles['single-file-wrapper']}>
+                                    <p className={styles['file-user-info']}>{user && user.username}</p>
+                                    <div className={styles['file-content']}>
+                                        <p>{file && file.name}</p>
+                                    </div>
+                                </div>
+                                </ul>
+                            );
+                        })}
+
+                        <Button
+                        onClick={FetchFiles}
+                        text="load files"
+                        />
+                    </div>
                 </div>
             </div>
         </div>

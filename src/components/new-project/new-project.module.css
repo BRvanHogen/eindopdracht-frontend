@@ -1,0 +1,21 @@
+.input {
+    display: flex;
+    margin: 1em;
+    padding: 0.25em 0.5em;
+    box-shadow: 0 3px 3px rgba(20, 20, 20, 0.18);
+    border: 1px solid var(--input-border);
+    border-radius: 3px;
+}
+
+
+.input:focus {
+    outline-style: none;
+    box-shadow: 0 0 0 2px var(--input-border);
+}
+
+
+.input::placeholder {
+    color: var(--pink);
+    font-style: italic;
+    opacity: 0.3;
+}

@@ -5,8 +5,6 @@ import Button from "../button/Button";
 
 function GetComment() {
 
-    // useEffect(() => {
-
         async function FetchComments() {
             const {jwtToken} = useContext(AuthContext);
 
@@ -24,9 +22,6 @@ function GetComment() {
                 console.error(e);
             }
         }
-    //     FetchComments();
-    // }, []);
-
 
 
     return (

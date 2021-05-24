@@ -1,7 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-}
 
 body {
     width: 100vw;
@@ -32,7 +28,7 @@ body {
     margin: 10px;
 }
 
-.comment-wrapper {
+.comment-section-wrapper {
     border: 1px solid red;
     width: auto;
 }
@@ -53,15 +49,15 @@ body {
 }
 
 
-
 .comments-display {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    /*align-items: flex-start;*/
     background-color: var(--fields);
     opacity: 0.7;
     padding: 5px;
     margin: 10px;
+    border: 1px solid purple;
 
 /*scroller:*/
     height: 200px;
@@ -69,11 +65,40 @@ body {
 }
 
 
-.upload-wrapper {
+.single-comment-wrapper {
+    border: 1px solid deepskyblue;
+    display: flex;
+    /*justify-content: space-between;*/
+}
+
+.comment-user-info {
+    border: 1px solid black;
+}
+
+.comment-timestamp {
+    border: 1px solid white;
+    display: flex;
+    justify-content: flex-end;
+    flex: 0 1 auto;
+}
+
+.comment-content {
+    border: 1px solid green;
+    align-self: flex-start;
+    flex: 2 1 auto;
+}
+
+.upload-section-wrapper {
     background-color: var(--fields);
     opacity: 0.7;
     padding: 5px;
     margin: 10px;
+    border: 1px solid blue;
+}
+
+.upload-action-wrapper {
+    border: 1px solid pink;
+    display: flex;
 }
 
 .user-details {
@@ -82,5 +107,18 @@ body {
     border: 1px solid var(--pink);
     background-color: white;
     opacity: 0.7;
+}
+
+.uploads-display {
+    border: 1px solid rebeccapurple;
+}
+
+.single-file-wrapper {
+    border: 1px solid orange;
+    display: flex;
+}
+
+.file-user-info {
+    border: 1px solid turquoise;
 }
 
