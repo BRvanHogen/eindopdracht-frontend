@@ -14,6 +14,7 @@
     --fields-hover: hsl(30, 2%, 50%);
     --pink: hsl(340, 84%, 50%);
     --less-pink: hsl(340, 84%, 60%);
+    --box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
 }
 
 body {

@@ -117,3 +117,9 @@ Notities 21 mei
   Notities 22 mei
 - css gedoe opgelost, zie notitie in mapje eindopdracht. Meenemen in eindverantwoording
 - er moet een check komen op de confirm password (sign up). Als deze niet gelijk zijn, dan geen registratie
+
+
+Notities 24 mei
+- in de backend is voor downloaden van single file 'String filename' ineens een Pathvariable. Verwarrend
+  omdat het eerder name als key had
+

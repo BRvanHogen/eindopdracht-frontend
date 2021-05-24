@@ -13,7 +13,7 @@ import {ProjectContext} from "../context/ProjectContext";
 import {AuthContext} from "../context/AuthContext";
 import ControlComponentSandbox from "../components/audio-player/audioplayer-may/ControlComponentSandbox";
 import UploadFileMultipart from "../components/upload-file/UploadFileMultipart";
-
+import DownloadFile from "../components/download-file/DownloadFile";
 
 function BandDashboard({title, children}) {
     const [comments, setComments] = useState([]);
@@ -24,6 +24,10 @@ function BandDashboard({title, children}) {
     const {user} = useContext(AuthContext);
     const projectName = (localStorage.getItem('name'));
     console.log(projectName);
+
+    function sayHi() {
+        console.log('hi!');
+    }
 
     //--------------COMMENTS--------------------------------------------
     async function FetchComments() {
@@ -117,6 +121,12 @@ function BandDashboard({title, children}) {
                                     <p className={styles['file-user-info']}>{user && user.username}</p>
                                     <div className={styles['file-content']}>
                                         <p>{file && file.name}</p>
+                                        <p
+                                            className={styles['file-download-link']}
+                                            onClick={sayHi}
+                                        >
+                                            download
+                                        </p>
                                     </div>
                                 </div>
                                 </ul>

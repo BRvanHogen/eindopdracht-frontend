@@ -18,6 +18,8 @@ body {
     background-color: var(--fields);
     padding: 5px;
     margin: 10px;
+    box-shadow: var(--box-shadow);
+    /*border-radius: 4px;*/
     /*display: flex;*/
 }
 
@@ -29,14 +31,15 @@ body {
 }
 
 .comment-section-wrapper {
-    border: 1px solid red;
+    /*border: 1px solid red;*/
     width: auto;
 }
 
 .comment-action-wrapper {
-    border: 1px solid blue;
+    /*border: 1px solid blue;*/
     display: flex;
     background-color: var(--fields);
+    box-shadow: var(--box-shadow);
 }
 
 .username-post {
@@ -54,10 +57,11 @@ body {
     flex-direction: column;
     /*align-items: flex-start;*/
     background-color: var(--fields);
+    box-shadow: var(--box-shadow);
     opacity: 0.7;
     padding: 5px;
     margin: 10px;
-    border: 1px solid purple;
+    /*border: 1px solid purple;*/
 
 /*scroller:*/
     height: 200px;
@@ -90,10 +94,11 @@ body {
 
 .upload-section-wrapper {
     background-color: var(--fields);
+    box-shadow: var(--box-shadow);
     opacity: 0.7;
     padding: 5px;
     margin: 10px;
-    border: 1px solid blue;
+    /*border: 1px solid blue;*/
 }
 
 .upload-action-wrapper {
@@ -120,5 +125,17 @@ body {
 
 .file-user-info {
     border: 1px solid turquoise;
+}
+
+.file-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.file-download-link {
+    cursor: pointer;
+    font-size: small;
+    text-decoration: underline;
+    color: dimgray;
 }
 
