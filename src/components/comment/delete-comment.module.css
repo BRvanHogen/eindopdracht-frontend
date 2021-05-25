@@ -1,0 +1,7 @@
+.delete-comment {
+    width: .8em;
+    height: .8em;
+    font-style: normal;
+    cursor: pointer;
+    padding: 0.4em;
+}

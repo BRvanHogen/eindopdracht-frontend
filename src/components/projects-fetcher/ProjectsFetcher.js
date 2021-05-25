@@ -1,8 +1,9 @@
 import React, {useContext, useEffect, useState} from 'react';
+import styles from "./projects-fetcher-module.css";
 import axios from 'axios';
-import {AuthContext} from "../context/AuthContext";
-import Button from "./button/Button";
-import {ProjectContext} from "../context/ProjectContext";
+import {AuthContext} from "../../context/AuthContext";
+import Button from "../button/Button";
+import {ProjectContext} from "../../context/ProjectContext";
 import { useHistory } from 'react-router-dom';
 
 
@@ -18,6 +19,7 @@ function ProjectsFetcher() {
             const result = await axios.get(`https://localhost:8444/projects`)
             console.log(result.data);
             setSongs(result.data);
+            document.getElementById('fetch').classList.add('hide-button');
 
         } catch (e) {
             console.error(e);
@@ -30,14 +32,19 @@ function ProjectsFetcher() {
             <Button
                 onClick={fetchProjects}
                 text="load projects"
+                id="fetch"
             />
 
             {songs.map((song) => {
                 console.log(song.name, song.workingTitle, song.id)
 
                 return (
-                    <ul>
-                        <li key={song.id}>
+                    <div className={styles['projects-list-container']}>
+                    <ul className={styles.ul}>
+                        <li
+                            className={styles.li}
+                            key={song.id}
+                        >
                         <Button
                         text={song.name}
                         type="button"
@@ -46,6 +53,7 @@ function ProjectsFetcher() {
                         />
                         </li>
                     </ul>
+                    </div>
                 )
             })}
         </>

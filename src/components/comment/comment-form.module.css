@@ -5,6 +5,7 @@
 .text-area {
     font-size: 16px;
     font-family: inherit;
+    color: var(--pink);
     padding: 0.25em 0.5em;
     opacity: 0.8;
     box-shadow: 0 3px 3px rgba(20, 20, 20, 0.18);

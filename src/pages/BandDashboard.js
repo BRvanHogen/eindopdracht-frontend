@@ -1,8 +1,8 @@
-import React, {useEffect, useState, useContext} from 'react';
+import React, {useEffect, useState, useContext, createContext} from 'react';
 import {Link} from 'react-router-dom';
 import styles from '../stylesheets/band-dashboard.module.css';
 import SongDetails from "../components/SongDetails";
-import ProjectsFetcher from "../components/ProjectsFetcher";
+import ProjectsFetcher from "../components/projects-fetcher/ProjectsFetcher";
 import Comment from "../components/comment/Comment";
 import Sidebar from "../components/sidebar/Sidebar";
 import axios from 'axios';
@@ -13,7 +13,9 @@ import {ProjectContext} from "../context/ProjectContext";
 import {AuthContext} from "../context/AuthContext";
 import ControlComponentSandbox from "../components/audio-player/audioplayer-may/ControlComponentSandbox";
 import UploadFileMultipart from "../components/upload-file/UploadFileMultipart";
-import DownloadFile from "../components/download-file/DownloadFile";
+// import DeleteComment from "../components/comment/DeleteComment";
+import DeleteCommentFromDB from "../components/comment/DeleteComment";
+
 
 function BandDashboard({title, children}) {
     const [comments, setComments] = useState([]);
@@ -25,8 +27,15 @@ function BandDashboard({title, children}) {
     const projectName = (localStorage.getItem('name'));
     console.log(projectName);
 
-    function sayHi() {
-        console.log('hi!');
+    //------------DOWNLOAD--------------------------------------------
+    async function DownloadFile(filename) {
+        try {
+            console.log('it got to the DownloadFile');
+            const response = await axios.get(`https://localhost:8444/files/${filename}`);
+            window.open(`https://localhost:8444/files/${filename}`, "_blank");
+        } catch (e) {
+            console.error(e);
+        }
     }
 
     //--------------COMMENTS--------------------------------------------
@@ -82,10 +91,24 @@ function BandDashboard({title, children}) {
                                     <div className={styles['single-comment-wrapper']}>
                                         <div className={styles['comment-user-info']}>
                                     <p>{comment.byUser}</p>
+                                            <p>{comment.id}</p>
                                         </div>
 
                                         <div className={styles['comment-content']}>
-                                    <p>{comment.textareaInput}</p>
+                                    <p>{`'${comment.textareaInput}'`}</p>
+
+                                            <div
+                                                className={styles['delete-comment-wrapper']}
+                                            >
+                                            <i
+                                                className={styles['delete-comment']}
+                                                // onClick={()=> DeleteComment(comment.id)}
+                                                onClick={()=> DeleteCommentFromDB(comment.id)}
+                                            >
+                                                🗑️
+                                            </i>
+                                            </div>
+
                                         </div>
 
                                         <div className={styles['comment-timestamp']}>
@@ -98,10 +121,12 @@ function BandDashboard({title, children}) {
                         })}
                         {children}
 
+                        <div className={styles['button-wrapper']}>
                         <Button
                             text="load comments"
                             onClick={FetchComments}
                         />
+                        </div>
 
                     </div>
                 </div>
@@ -123,7 +148,7 @@ function BandDashboard({title, children}) {
                                         <p>{file && file.name}</p>
                                         <p
                                             className={styles['file-download-link']}
-                                            onClick={sayHi}
+                                            onClick={()=>{DownloadFile(file.name)}}
                                         >
                                             download
                                         </p>

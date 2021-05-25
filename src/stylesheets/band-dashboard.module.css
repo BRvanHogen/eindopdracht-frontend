@@ -52,6 +52,7 @@ body {
 }
 
 
+
 .comments-display {
     display: flex;
     flex-direction: column;
@@ -80,7 +81,9 @@ body {
 }
 
 .comment-timestamp {
-    border: 1px solid white;
+    /*border: 1px solid white;*/
+    font-size: x-small;
+    text-decoration: underline;
     display: flex;
     justify-content: flex-end;
     flex: 0 1 auto;
@@ -90,7 +93,31 @@ body {
     border: 1px solid green;
     align-self: flex-start;
     flex: 2 1 auto;
+    font-style: italic;
+    font-size: small;
 }
+
+
+.delete-comment-wrapper {
+    /*border: 1px solid pink;*/
+    display: flex;
+    justify-content: flex-end;
+}
+
+.delete-comment {
+    width: .8em;
+    height: .8em;
+    font-style: normal;
+    cursor: pointer;
+    padding: 0.4em;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 0.5em;
+}
+
 
 .upload-section-wrapper {
     background-color: var(--fields);

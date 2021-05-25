@@ -1,0 +1,12 @@
+
+.hide-button {
+    /*visibility: hidden;*/
+    /*opacity: 0;*/
+    /*transition: visibility 0s 1.3s, opacity 2s linear;*/
+
+    opacity: 0.3;
+    transition: opacity 2s linear;
+
+    /*display: none;*/
+    /*transition: display 2s linear;*/
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "./projects-page.module.css"
 import NewProject from "../../components/new-project/NewProject";
-import ProjectsFetcher from "../../components/ProjectsFetcher";
+import ProjectsFetcher from "../../components/projects-fetcher/ProjectsFetcher";
 import ExitProject from "../../components/exit-project/ExitProject";
 import DeleteProject from "../../components/delete-project/DeleteProject";
 
@@ -11,12 +11,19 @@ function ProjectsPage() {
 
             <div className={styles['top-container']}>
                 <h1 className={styles['top-container-title']}>Create new project</h1>
-            <NewProject/>
+                <NewProject/>
             </div>
 
-            <ProjectsFetcher/>
-            <ExitProject/>
-            <DeleteProject/>
+            <div className={styles['bottom-container']}>
+                <div className={styles['load-projects']}>
+                    <ProjectsFetcher
+                    />
+                </div>
+                <div className={styles['exit-delete']}>
+                    <ExitProject/>
+                    <DeleteProject/>
+                </div>
+            </div>
         </div>
     );
 }
