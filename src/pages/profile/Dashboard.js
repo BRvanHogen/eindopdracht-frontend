@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import {Link} from 'react-router-dom';
 import { AuthContext } from "../../context/AuthContext";
 import Button from "../../components/button/Button";
-import styles from "../profile/dashboard.module.css"
+import styles from "../profile/dashboard.module.css";
 import InputField from "../../components/input-field/InputField";
 import AvatarCropper from "../../components/avatar/AvatarCropper";
 import UploadAvatar from "../../components/avatar/UploadAvatar";
@@ -17,7 +17,7 @@ function Dashboard() {
     console.log(user);
 
     return (
-        <>
+        <div className={styles.background}>
             <div className={styles['header-container']}>
             <h1>{user && user.username}</h1>
                 <img
@@ -39,7 +39,7 @@ function Dashboard() {
                 <p>user details</p>
             </div>
             </div>
-        </>
+        </div>
 
     )
 }

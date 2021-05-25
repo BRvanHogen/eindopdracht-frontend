@@ -1,0 +1,47 @@
+
+.background {
+    background-image: url("../../assets/pics/background/nainoa-shizuru-NcdG9mK3PBY-unsplash.jpg");
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.title-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    color: var(--pink);
+    margin: 1em;
+}
+
+.paragraph {
+    color: var(--pink);
+    text-shadow: 0.1ch 0.1ch grey;
+}
+
+.buttons-wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin: 3em;
+}
+
+.buttons-wrapper a {
+    text-decoration: none;
+}
+
+.buttons-wrapper button:hover {
+    color: var(--pink);
+    transition: color 0.8s linear;
+}
+

@@ -83,6 +83,7 @@
 
 .signup-cue {
     font-weight: bold;
+    color: var(--pink);
     margin-top: 2em;
     opacity: 0.8;
     cursor: crosshair;

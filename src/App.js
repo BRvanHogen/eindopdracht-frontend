@@ -6,7 +6,7 @@ import Dashboard from "./pages/profile/Dashboard";
 import BandDashboard from "./pages/BandDashboard";
 import TopMenu from "./components/top-menu/TopMenu";
 import SignUpPage from "./pages/signup-page/SignUpPage";
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/home-page/HomePage";
 import ProjectsPage from "./pages/projects-page/ProjectsPage";
 import Sidebar from "./components/sidebar/Sidebar";
 import TestPage from "./pages/test-page/TestPage";
