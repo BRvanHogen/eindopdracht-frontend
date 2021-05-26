@@ -7,6 +7,7 @@ import ControlComponentSandbox from "../../components/audio-player/audioplayer-m
 import UploadFile from "../../components/upload-file/UploadFile";
 import UploadFileMultipart from "../../components/upload-file/UploadFileMultipart";
 import InputField from "../../components/input-field/InputField";
+import AudioPlayerUploadedFiles from "../../components/audio-player/audioplayer-may/AudioPlayerUploadedFiles";
 
 function TestPage() {
     return (
@@ -15,9 +16,7 @@ function TestPage() {
             {/*<UploadFileStub/>*/}
             {/*<ControlComponent/>*/}
             {/*<UploadFile/>*/}
-            <UploadFileMultipart/>
-            <ControlComponentSandbox/>
-            <InputField/>
+            <AudioPlayerUploadedFiles/>
             </>
     );
 }

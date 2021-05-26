@@ -65,7 +65,7 @@ body {
     /*border: 1px solid purple;*/
 
 /*scroller:*/
-    height: 200px;
+    height: 12.5em;
     overflow: auto;
 }
 
@@ -120,17 +120,20 @@ body {
 
 
 .upload-section-wrapper {
-    background-color: var(--fields);
-    box-shadow: var(--box-shadow);
-    opacity: 0.7;
-    padding: 5px;
-    margin: 10px;
-    /*border: 1px solid blue;*/
+    /*background-color: var(--fields);*/
+    /*box-shadow: var(--box-shadow);*/
+    /*opacity: 0.7;*/
+    /*padding: 5px;*/
+    /*margin: 10px;*/
+    border: 1px solid blue;
+    width: auto;
 }
 
 .upload-action-wrapper {
     border: 1px solid pink;
     display: flex;
+    background-color: var(--fields);
+    box-shadow: var(--box-shadow);
 }
 
 .user-details {
@@ -143,6 +146,19 @@ body {
 
 .uploads-display {
     border: 1px solid rebeccapurple;
+    background-color: var(--fields);
+    box-shadow: var(--box-shadow);
+    opacity: 0.7;
+    padding: 5px;
+    margin: 10px;
+    height: 12.5em;
+    overflow: auto;
+}
+
+.load-button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 0.5em;
 }
 
 .single-file-wrapper {
@@ -157,12 +173,17 @@ body {
 .file-content {
     display: flex;
     justify-content: space-between;
+    border: 1px solid pink;
 }
+
 
 .file-download-link {
     cursor: pointer;
     font-size: small;
     text-decoration: underline;
     color: dimgray;
+    display: flex;
+    align-items: flex-start;
+    margin-left: 1em;
 }
 

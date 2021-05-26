@@ -5,6 +5,7 @@ import Button from "../button/Button";
 import {useForm} from "react-hook-form";
 import {useHistory} from 'react-router-dom';
 import {ProjectContext} from "../../context/ProjectContext";
+import LoadingRipple from "../loading-disc/loadingRipple";
 
 
 function NewProject() {
@@ -12,6 +13,7 @@ function NewProject() {
     const history = useHistory();
     const [projectCreated, toggleProjectCreated] = useState(false);
     const {set} = useContext(ProjectContext);
+    const [loading, toggleLoading] = useState(false);
 
     async function startNewProject(data) {
         console.log(data);
@@ -22,13 +24,12 @@ function NewProject() {
                 // id: data.id,
             });
 
-            // set(response.data.name);
-            // console.log('set', set);
-
             toggleProjectCreated(true);
+            toggleLoading(true);
 
             setTimeout(() => {
-                history.push(`/projects${data.name}`);
+                set(data.name);
+                history.push(`/band-dashboard`);
             }, 2000);
 
         } catch (e) {
@@ -37,6 +38,7 @@ function NewProject() {
     }
 
     return (
+        <>
         <form onSubmit={handleSubmit(startNewProject)}>
             <fieldset>
                 {/*<legend>create new project</legend>*/}
@@ -77,9 +79,10 @@ function NewProject() {
                 </label>
             </fieldset>
             {projectCreated === true &&
-            <p>project created. You will be redirected to project page</p>}
+            <p className={styles['user-message']}>project created. You will be redirected to project page</p>}
         </form>
-
+    {loading === true && <LoadingRipple/>}
+</>
     );
 }
 

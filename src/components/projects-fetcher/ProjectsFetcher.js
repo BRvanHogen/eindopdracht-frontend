@@ -11,8 +11,15 @@ function ProjectsFetcher() {
     const {jwtToken} = useContext(AuthContext);
     const [songs, setSongs] = useState([]);
     const history = useHistory();
-    const {set} = useContext(ProjectContext);
+    const {project, set} = useContext(ProjectContext);
 
+
+function SetProjectAndRedirect(projectName) {
+    set(projectName);
+    alert('project has been selected. Redirect to working space in 3...2...1...');
+    // const userMessage = document.getElementById('user-message');
+    history.push("/band-dashboard");
+}
 
     async function fetchProjects() {
         try {
@@ -49,14 +56,16 @@ function ProjectsFetcher() {
                         text={song.name}
                         type="button"
                         // key={song.id}
-                        onClick={()=>set(song.name)}
+                        // onClick={()=>set(song.name)}
+                        onClick={()=>SetProjectAndRedirect(song.name)}
                         />
                         </li>
                     </ul>
                     </div>
                 )
             })}
-        </>
+            {/*<p id="user-message" className={styles['user-message']}>{userMessage}</p>*/}
+            </>
     )
 }
 

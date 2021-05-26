@@ -158,10 +158,12 @@ function BandDashboard({title, children}) {
                             );
                         })}
 
+                        <div className={styles['load-button-wrapper']}>
                         <Button
                         onClick={FetchFiles}
                         text="load files"
                         />
+                        </div>
                     </div>
                 </div>
             </div>

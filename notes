@@ -123,7 +123,10 @@ Notities 24 mei
 - in de backend is voor downloaden van single file 'String filename' ineens een Pathvariable. Verwarrend
   omdat het eerder name als key had
 
-Notities
+Notities 25 mei
 - als je een nummer in de context zet (via load projects > klik op button van het gewenste nummer) wil ik eigenlijk
   automatisch doorlinken naar band-dashboard. Maar, er staat al een functie in de onClick (nl. het in de context
   zetten van het nummer).
+
+Notities 26 mei
+- de button en label voor het uploaden van files had ik wel willen stylen als ik meer tijd had gehad
