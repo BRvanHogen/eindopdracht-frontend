@@ -91,7 +91,6 @@ function BandDashboard({title, children}) {
                                     <div className={styles['single-comment-wrapper']}>
                                         <div className={styles['comment-user-info']}>
                                     <p>{comment.byUser}</p>
-                                            <p>{comment.id}</p>
                                         </div>
 
                                         <div className={styles['comment-content']}>

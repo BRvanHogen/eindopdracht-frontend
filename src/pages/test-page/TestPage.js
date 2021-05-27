@@ -19,7 +19,7 @@ function TestPage() {
             {/*<ControlComponent/>*/}
             {/*<UploadFile/>*/}
             {/*<AudioPlayerUploadedFiles/>*/}
-            <ToDoList/>
+            {/*<ToDoList/>*/}
             <TaskFetcher/>
             </>
     );

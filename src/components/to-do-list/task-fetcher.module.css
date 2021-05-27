@@ -1,0 +1,83 @@
+.task-section-wrapper {
+    width: auto;
+}
+
+.task-action-wrapper {
+    display: flex;
+    background-color: var(--fields);
+    box-shadow: var(--box-shadow);
+    max-width: 33%;
+}
+
+
+.username-post-task {
+    width: 3em;
+    height: 3em;
+    background-color: white;
+    opacity: 0.7;
+    border-radius: 3px;
+    margin: 0.25em 0.5em;
+}
+
+
+.tasks-display {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--fields);
+    box-shadow: var(--box-shadow);
+    opacity: 0.7;
+    padding: 0.3125em;
+    margin: 0.625em;
+    max-width: 33%;
+    /*border: 1px solid purple;*/
+
+    height: 12.5em;
+    overflow: auto;
+}
+
+
+.single-task-wrapper {
+    display: flex;
+}
+
+
+.task-user-info {
+
+}
+
+
+.task-content {
+    border: 1px solid green;
+    align-self: flex-start;
+    flex: 2 1 auto;
+    font-style: italic;
+    font-size: small;
+}
+
+
+.delete-task-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.delete-task {
+    width: .8em;
+    height: .8em;
+    font-style: normal;
+    cursor: pointer;
+    padding: 0.4em;
+}
+
+
+.delete-task i {
+    font-style: normal;
+}
+
+.task-timestamp {
+    font-size: x-small;
+    text-decoration: underline;
+    display: flex;
+    justify-content: flex-end;
+    flex: 0 1 auto;
+}
