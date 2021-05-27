@@ -8,6 +8,8 @@ import UploadFile from "../../components/upload-file/UploadFile";
 import UploadFileMultipart from "../../components/upload-file/UploadFileMultipart";
 import InputField from "../../components/input-field/InputField";
 import AudioPlayerUploadedFiles from "../../components/audio-player/audioplayer-may/AudioPlayerUploadedFiles";
+import ToDoList from "../../components/to-do-list/ToDoList";
+import TaskFetcher from "../../components/to-do-list/TaskFetcher";
 
 function TestPage() {
     return (
@@ -16,7 +18,9 @@ function TestPage() {
             {/*<UploadFileStub/>*/}
             {/*<ControlComponent/>*/}
             {/*<UploadFile/>*/}
-            <AudioPlayerUploadedFiles/>
+            {/*<AudioPlayerUploadedFiles/>*/}
+            <ToDoList/>
+            <TaskFetcher/>
             </>
     );
 }

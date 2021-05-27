@@ -23,7 +23,7 @@ function HomePage() {
 
                     <NavLink to="/sign-up">
                         <Button
-                        text="Sign in"
+                        text="Sign up"
                         />
                     </NavLink>
                 </div>
