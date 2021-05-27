@@ -6,6 +6,8 @@ import {ProjectContext} from "../../context/ProjectContext";
 import {AuthContext} from "../../context/AuthContext";
 import ToDoList from "./ToDoList";
 import TimeFormatter from "../../helpers/TimeFormatter";
+import DeleteCommentFromDB from "../comment/DeleteComment";
+import DeleteTaskFromDB from "./DeleteTaskFromDB";
 
 function TaskFetcher() {
     const { name } = useContext(ProjectContext);
@@ -55,9 +57,10 @@ function TaskFetcher() {
                                     <p>{`'${task.content}'`}</p>
                                     <p>{task.parentProject}</p>
                                     <div className={styles['delete-task-wrapper']}>
-                                        <div className={styles['delete-task']}>
-                                            <i>🗑️</i>
-                                        </div>
+                                            <i
+                                                className={styles['delete-task']}
+                                                onClick={()=> DeleteTaskFromDB(task.id)}
+                                            >🗑️</i>
                                     </div>
                                     <div className={styles['task-timestamp']}>
                                         <p>{TimeFormatter(task.timestamp)}</p>

@@ -21,18 +21,11 @@ import GetComment from "./GetComment";
 
     return (
         <>
-            {/*<i*/}
-            {/*    className={styles['delete-comment']}*/}
-            {/*    onClick={DeleteComment}*/}
-            {/*    id={props.id}*/}
-            {/*>*/}
-            {/*    🗑️*/}
-            {/*</i>*/}
         </>
     );
 }
 
 
-// export default DeleteComment;
+
 
 export default DeleteCommentFromDB;

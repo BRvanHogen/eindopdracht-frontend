@@ -55,13 +55,15 @@
 }
 
 
+/*.delete-task-wrapper {*/
+/*    display: flex;*/
+/*    justify-content: flex-end;*/
+/*}*/
+
+
 .delete-task-wrapper {
     display: flex;
     justify-content: flex-end;
-}
-
-
-.delete-task {
     width: .8em;
     height: .8em;
     font-style: normal;
@@ -70,8 +72,10 @@
 }
 
 
-.delete-task i {
+.delete-task  {
     font-style: normal;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .task-timestamp {
