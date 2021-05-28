@@ -10,7 +10,8 @@ import DeleteCommentFromDB from "../comment/DeleteComment";
 import DeleteTaskFromDB from "./DeleteTaskFromDB";
 
 function TaskFetcher() {
-    const { name } = useContext(ProjectContext);
+    const {name} = useContext(ProjectContext);
+    const {user} = useContext(AuthContext);
     const [tasks, setTasks] = useState([]);
 
     async function FetchTasksForThisProject() {
@@ -33,51 +34,57 @@ function TaskFetcher() {
 
     return (
         <div className={styles['main-wrapper']}>
-            <div className={styles['task-section-wrapper']}>
-                <div className={styles['task-action-wrapper']}>
-                    <div className={styles['username-post-task']}>
-                        <div className={styles['text-area']}>
-                        <ToDoList/>
-                        </div>
-                    </div>
+            {/*<div className={styles['task-section-wrapper']}>*/}
+            <div className={styles['task-action-wrapper']}>
+                <div className={styles['username-post-task']}>
+                    {user && <p className={styles['username-paragraph']}>{user.username}</p>}
+                </div>
+                <div className={styles['text-area-wrapper']}>
+                    <ToDoList className={styles['text-area']}/>
                 </div>
             </div>
+            {/*</div>*/}
+            {/*</div>*/}
 
             <div className={styles['tasks-display']}>
                 {tasks.map((task) => {
-                    {if(task.parentProject === localStorage.getItem('name'))
-                    return (
-                        <ul>
-                            <li key={task.id}>
-                            <div className={styles['single-task-wrapper']}>
-                                <div className={styles['task-user-info']}>
-                                    <p>{task.byUser}</p>
-                                </div>
-                                <div className={styles['task-content']}>
-                                    <p>{`'${task.content}'`}</p>
-                                    <p>{task.parentProject}</p>
-                                    <div className={styles['delete-task-wrapper']}>
-                                            <i
-                                                className={styles['delete-task']}
-                                                onClick={()=> DeleteTaskFromDB(task.id)}
-                                            >🗑️</i>
-                                    </div>
-                                    <div className={styles['task-timestamp']}>
-                                        <p>{TimeFormatter(task.timestamp)}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            </li>
-                        </ul>
-                    );}
+                    {
+                        if (task.parentProject === localStorage.getItem('name'))
+                            return (
+                                <ul>
+                                    <li key={task.id}>
+                                        <div className={styles['single-task-wrapper']}>
+                                            <div className={styles['task-user-info']}>
+                                                <p>{task.byUser}</p>
+                                            </div>
+                                            <div className={styles['task-content']}>
+                                                <p>{`'${task.content}'`}</p>
+                                                <p>{task.parentProject}</p>
+                                                <div className={styles['delete-task-wrapper']}>
+                                                    <i
+                                                        className={styles['delete-task']}
+                                                        onClick={() => DeleteTaskFromDB(task.id)}
+                                                    >🗑️</i>
+                                                </div>
+                                                <div className={styles['task-timestamp']}>
+                                                    <p>{TimeFormatter(task.timestamp)}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            );
+                    }
                 })}
                 {/*{children}*/}
-                           </div>
 
-            <Button
-                text="load tasks"
-                onClick={FetchTasksForThisProject}
-            />
+                <div className={styles['load-button-wrapper']}>
+                    <Button
+                        text="load tasks"
+                        onClick={FetchTasksForThisProject}
+                    />
+                </div>
+            </div>
         </div>
     );
 }

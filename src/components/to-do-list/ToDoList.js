@@ -34,9 +34,11 @@ function ToDoList() {
     }
 
     return (
-        <>
+        <div className={styles['main-container']}>
             {userCue && <p className={styles['user-message']}>select a project before posting a task</p>}
-            <form onSubmit={handleSubmit(PostTask)}>
+            <form
+                className={styles['main-form']}
+                onSubmit={handleSubmit(PostTask)}>
                   <fieldset>
                       <label htmlFor="content">
                           <textarea
@@ -55,7 +57,7 @@ function ToDoList() {
                       </label>
                   </fieldset>
             </form>
-        </>
+        </div>
     );
 }
 

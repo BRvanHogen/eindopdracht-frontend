@@ -6,7 +6,6 @@ import axios from 'axios';
 async function FetchFiles() {
     const [files, setFiles] = useState([]);
     try {
-        console.log('hello!');
         const response = await axios.get('https://localhost:8444/files', {headers: {
                 "Content-Type": "application/json",
             }});

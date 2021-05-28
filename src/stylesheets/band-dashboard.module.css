@@ -23,6 +23,18 @@ body {
     /*display: flex;*/
 }
 
+
+.audio-player {
+    border: 1px solid turquoise;
+}
+
+
+.tasks-wrapper {
+    border: 1px solid black;
+    display: flex;
+    justify-content: flex-end;
+}
+
 .bottom-content {
     display: flex;
     justify-content: space-between;

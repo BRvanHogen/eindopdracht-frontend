@@ -1,3 +1,8 @@
+
+.main-form {
+    border: 1px solid darkmagenta;
+}
+
 .text-area {
     font-size: 16px;
     font-family: inherit;
@@ -8,6 +13,8 @@
     border: 1px solid var(--input-border);
     border-radius: 4px;
     transition: 180ms box-shadow ease-in-out;
+    max-width: 8em;
+    max-height: 5em;
 }
 
 .text-area::placeholder {

@@ -19,7 +19,7 @@ function SignUpPage() {
     async function onFormSubmit(data) {
         console.log(data);
         try {
-            const result = await axios.post('https://localhost:8444/users', {
+            const result = await axios.post('https://localhost:8444/users/sign-up', {
                 username: data.username,
                 password: data.password,
                 email: data.email,

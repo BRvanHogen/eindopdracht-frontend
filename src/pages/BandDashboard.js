@@ -15,6 +15,8 @@ import ControlComponentSandbox from "../components/audio-player/audioplayer-may/
 import UploadFileMultipart from "../components/upload-file/UploadFileMultipart";
 // import DeleteComment from "../components/comment/DeleteComment";
 import DeleteCommentFromDB from "../components/comment/DeleteComment";
+import ToDoList from "../components/to-do-list/ToDoList";
+import TaskFetcher from "../components/to-do-list/TaskFetcher";
 
 
 function BandDashboard({title, children}) {
@@ -72,7 +74,12 @@ function BandDashboard({title, children}) {
             <div className={styles['header-container']}>
                 <h2>{projectName && projectName}</h2>
                 <h3>{user && user.username}, created on date</h3>
+                <div className={styles['audio-player']}>
                 <ControlComponentSandbox/>
+                </div>
+                <div className={styles['tasks-wrapper']}>
+                    <TaskFetcher/>
+                </div>
             </div>
 
             <div className={styles['bottom-content']}>

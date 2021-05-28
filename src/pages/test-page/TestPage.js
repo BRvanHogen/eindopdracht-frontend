@@ -10,6 +10,7 @@ import InputField from "../../components/input-field/InputField";
 import AudioPlayerUploadedFiles from "../../components/audio-player/audioplayer-may/AudioPlayerUploadedFiles";
 import ToDoList from "../../components/to-do-list/ToDoList";
 import TaskFetcher from "../../components/to-do-list/TaskFetcher";
+import GetUsers from "../../components/GetUsers/GetUsers";
 
 function TestPage() {
     return (
@@ -20,7 +21,8 @@ function TestPage() {
             {/*<UploadFile/>*/}
             {/*<AudioPlayerUploadedFiles/>*/}
             {/*<ToDoList/>*/}
-            <TaskFetcher/>
+            {/*<TaskFetcher/>*/}
+            <GetUsers/>
             </>
     );
 }
