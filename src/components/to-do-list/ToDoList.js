@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import styles from './to-do-list.module.css';
 import axios from 'axios';
 import {ProjectContext} from "../../context/ProjectContext";
@@ -11,20 +11,23 @@ function ToDoList() {
     const {  name } = useContext(ProjectContext);
     const { user } = useContext(AuthContext);
     const { handleSubmit, register, formState: {errors} } = useForm();
-
+    const [userCue, toggleUserCue] = useState(false);
 
     async function PostTask(data) {
         const projectName = localStorage.getItem('name');
         console.log(projectName);
         console.log('are we getting any data?', data);
         try {
+            if(projectName !== null) {
             const response = await axios.post(`https://localhost:8444/tasks/${projectName}/all-tasks`,{
                 byUser: user.username,
                 content: data.content,
                 parentProject: projectName,
                 // projectsId: projectName,
             });
-            console.log(response);
+            console.log(response);} else {
+                toggleUserCue(true);
+            }
         } catch (e) {
             console.error(e);
         }
@@ -32,6 +35,7 @@ function ToDoList() {
 
     return (
         <>
+            {userCue && <p className={styles['user-message']}>select a project before posting a task</p>}
             <form onSubmit={handleSubmit(PostTask)}>
                   <fieldset>
                       <label htmlFor="content">

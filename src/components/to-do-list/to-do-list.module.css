@@ -15,3 +15,15 @@
     font-style: italic;
     opacity: 0.6;
 }
+
+@keyframes user-cue {
+    0% {color: var(--font-gray); border: 1px solid transparent;}
+    25% {color: var(--pink); text-decoration: underline 1px solid var(--pink)}
+    50% {color: var(--font-gray); border: 1px solid transparent}
+    100% {color: var(--pink); border: 1px solid var(--pink)}
+}
+
+.user-message {
+    animation-name: user-cue;
+    animation-duration: 2s;
+}

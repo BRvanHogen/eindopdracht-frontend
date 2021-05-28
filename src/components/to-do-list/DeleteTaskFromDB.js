@@ -6,13 +6,13 @@ import LoadingRipple from "../loading-disc/loadingRipple";
 
 async function DeleteTaskFromDB(taskId) {
     // const [loading, toggleLoading] = useState(false);
-    // const [deleteSuccess, toggleDeleteSuccess] = useState(false);
     const projectName = localStorage.getItem('name');
     try {
         // toggleLoading(true);
         console.log('at least I got to the try-block!');
         await axios.delete(`https://localhost:8444/tasks/${projectName}/all-tasks/${taskId}`);
-        // toggleDeleteSuccess(true);
+        alert('task has been deleted');
+        window.location.reload(true);
     } catch (e) {
         console.error(e);
     }
@@ -20,7 +20,6 @@ async function DeleteTaskFromDB(taskId) {
     return(
         <>
             {/*{loading === true && <LoadingRipple/> }*/}
-            {/*{deleteSuccess === true && <p>task has been deleted</p>}*/}
         </>
     );
 

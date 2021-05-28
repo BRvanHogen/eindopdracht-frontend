@@ -16,9 +16,14 @@ function ProjectsFetcher() {
 
 function SetProjectAndRedirect(projectName) {
     set(projectName);
-    alert('project has been selected. Redirect to working space in 3...2...1...');
-    // const userMessage = document.getElementById('user-message');
-    history.push("/band-dashboard");
+    if (window.confirm('project has been selected. Redirect to working space?'))
+    {
+        history.push("/band-dashboard");
+    }
+    // set(projectName);
+    // alert('project has been selected. Redirect to working space in 3...2...1...');
+    // // const userMessage = document.getElementById('user-message');
+    // history.push("/band-dashboard");
 }
 
     async function fetchProjects() {
