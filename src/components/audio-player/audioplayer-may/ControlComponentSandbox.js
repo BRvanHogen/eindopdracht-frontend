@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {FaPlay, FaPause, FaAngleDoubleLeft, FaAngleDoubleRight} from 'react-icons/fa';
 import previous from '../../../assets/pics/audioplayer/previous.png';
 import next from '../../../assets/pics/audioplayer/next.png';
 import pause from '../../../assets/pics/audioplayer/pause.png';

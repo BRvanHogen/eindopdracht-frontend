@@ -1,13 +1,10 @@
 import React, {useState} from 'react';
 import {useForm} from 'react-hook-form';
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import styles from './signup-page.module.css';
 import axios from 'axios';
 import {NavLink, useHistory} from 'react-router-dom';
 import Button from "../../components/button/Button";
-import {Spring} from 'react-spring';
 import {motion} from "framer-motion";
-import Triangle from "../../components/decoration/triangle/Triangle";
 
 function SignUpPage() {
     const {handleSubmit, register, formState: {errors}} = useForm();

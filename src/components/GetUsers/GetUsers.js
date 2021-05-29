@@ -1,10 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
 import axios from 'axios';
-import Button from "../button/Button";
-import {AuthContext} from "../../context/AuthContext";
-
-// const {jwtToken} = localStorage.getItem('jwt');
-// console.log(jwtToken);
 
 
 function GetUsers() {

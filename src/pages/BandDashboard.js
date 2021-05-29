@@ -4,7 +4,6 @@ import styles from '../stylesheets/band-dashboard.module.css';
 import SongDetails from "../components/SongDetails";
 import ProjectsFetcher from "../components/projects-fetcher/ProjectsFetcher";
 import Comment from "../components/comment/Comment";
-import Sidebar from "../components/sidebar/Sidebar";
 import axios from 'axios';
 import GetComment from "../components/comment/GetComment";
 import Button from "../components/button/Button";
