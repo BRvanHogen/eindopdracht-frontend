@@ -9,10 +9,10 @@ import LoadingRipple from "../loading-disc/loadingRipple";
 
 
 function NewProject() {
-    const {handleSubmit, register, formState: {errors}} = useForm();
+    const { handleSubmit, register, formState: {errors} } = useForm();
     const history = useHistory();
     const [projectCreated, toggleProjectCreated] = useState(false);
-    const {set} = useContext(ProjectContext);
+    const { set } = useContext(ProjectContext);
     const [loading, toggleLoading] = useState(false);
 
     async function startNewProject(data) {

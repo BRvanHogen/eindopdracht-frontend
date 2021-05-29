@@ -2,17 +2,28 @@ import React, {useState} from 'react';
 import axios from 'axios';
 import {useForm} from "react-hook-form";
 import Button from "../button/Button";
+import DeleteUserAuthorityFromDB from "./DeleteUserAuthorityFromDB";
 
+function ConfirmBeforeDelete({username, authorityToDelete}) {
+    if (window.confirm('Authority will be deleted. Proceed?'))
+    {
+        console.log(authorityToDelete);
+        DeleteUserAuthorityFromDB({username, authorityToDelete});
+    }
+}
 
 function GetUserAuthorities() {
     const {handleSubmit, register, formState: {errors}} = useForm();
     const [authorityOne, setAuthorityOne] = useState('');
     const [authorityTwo, setAuthorityTwo] = useState('');
+    const [username, setUsername] = useState('');
+
 
     async function GetUserAuthoritiesFromDB(data) {
         setAuthorityOne('');
         setAuthorityTwo('');
         console.log(data.username);
+        setUsername(data.username);
         console.log('hallo?');
         const response = await axios.get(`https://localhost:8444/users/${data.username}/authorities`, {headers: {
                 "Content-Type": "application/json",
@@ -26,6 +37,7 @@ function GetUserAuthorities() {
         }
         if (response.data.length === 1) {
             setAuthorityOne(response.data[0].authority);
+            console.log(response.data[0].authority);
         }
     }
 
@@ -52,6 +64,7 @@ function GetUserAuthorities() {
                     <input
                         type="checkbox"
                         defaultChecked={true}
+                        onChange={()=> ConfirmBeforeDelete({username, authorityOne})}
                     />}
                 </div>
 
@@ -59,10 +72,13 @@ function GetUserAuthorities() {
                     {authorityTwo &&
                 <p>{authorityTwo}
                 </p>}
-                    {authorityTwo && <input
+                    {authorityTwo &&
+                    <input
                     type="checkbox"
                     defaultChecked={true}
-                    />}
+                    onChange={()=> ConfirmBeforeDelete({username, authorityTwo})}
+                    />
+                    }
                 </div>
             </div>
         </>
