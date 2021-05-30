@@ -1,14 +1,7 @@
 import React, { useContext } from 'react';
-import {Link} from 'react-router-dom';
 import { AuthContext } from "../../context/AuthContext";
 import Button from "../../components/button/Button";
 import styles from "../profile/dashboard.module.css";
-import InputField from "../../components/input-field/InputField";
-import AvatarCropper from "../../components/avatar/AvatarCropper";
-import UploadAvatar from "../../components/avatar/UploadAvatar";
-import LoadingRipple from "../../components/loading-disc/loadingRipple";
-import Alert from "../../components/alerts/Alert";
-import AudioPlayerScratch from "../../components/audio-player/AudioPlayerScratch";
 import profilePic from "../../assets/pics/other/pasfoto.jpg"
 
 
